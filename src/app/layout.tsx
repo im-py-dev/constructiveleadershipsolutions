@@ -1,9 +1,24 @@
 import type { Metadata } from "next";
+import { Lora, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+
+const serif = Lora({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
+
+const sans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
+});
 
 export const metadata: Metadata = {
   title: "Constructive Leadership Solutions | Dan Beatty | Construction Leadership Speaker & Training",
-  description: "Dan Beatty helps construction associations and contractors improve project performance through practical speaking, field-tested management training, and executive coaching.",
+  description: "Dan Beatty helps construction associations and contractors turn high-stress jobsites into high-performing teams through practical keynotes, PM development, and executive leadership coaching.",
   openGraph: {
     title: "Constructive Leadership Solutions | Dan Beatty",
     description: "Build the number. Lead the people who have to hit it. Construction leadership from someone who has lived it since 1984.",
@@ -31,8 +46,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="antialiased selection:bg-[#B64F43] selection:text-white">
+    <html lang="en" className={`${serif.variable} ${sans.variable} scroll-smooth`}>
+      <body className="font-sans antialiased bg-white text-[#0C263D] selection:bg-[#B64F43] selection:text-white">
         {children}
       </body>
     </html>

@@ -1,97 +1,80 @@
 "use client";
 
-import { AlertTriangle, TrendingDown, DollarSign, Users, MessageSquareOff, RefreshCw } from "lucide-react";
+import { XCircle, CheckCircle2 } from "lucide-react";
 
 export function TheFriction() {
-  const frictionPoints = [
+  const comparison = [
     {
-      icon: MessageSquareOff,
-      title: "Conversations Nobody Had",
-      stat: "70% of Field Friction",
-      text: "Superintendents who stay silent when a sub falls behind, or PMs who fail to clarify scope with the owner until billing day.",
+      problem: "Promoted craftspeople struggle to lead, resulting in shouting, frustration, or silent resentment.",
+      solution: "Structured 5 Voices communication empowers supervisors to lead with influence, clarity, and accountability.",
     },
     {
-      icon: RefreshCw,
-      title: "Costly Jobsite Rework",
-      stat: "$$$ Lost to Miscommunication",
-      text: "Work installed incorrectly because instructions weren't verified, resulting in wasted labor hours and schedule penalties.",
+      problem: "Field superintendents and office PMs operate in silos, blaming each other when schedules slip.",
+      solution: "Unified handover protocols and margin-discipline frameworks create seamless field-to-office alignment.",
     },
     {
-      icon: Users,
-      title: "Burnout & Turnover of Top PMs",
-      stat: "Tribal Knowledge Drain",
-      text: "Promoted craftspeople burning out under high stress because they were never given the leadership tools to manage teams.",
+      problem: "Superintendents avoid tough sub conversations until delays cause liquidated damages or blowups.",
+      solution: "Subcontractor accountability playbooks resolve scope disputes on day 1 before rework occurs.",
     },
     {
-      icon: DollarSign,
-      title: "Margin Erosion & Scope Creep",
-      stat: "Bid Profit Slipping Away",
-      text: "Uncollected change orders and overlooked indirect costs that silently eat away at project profitability.",
+      problem: "Estimators miss indirect costs and risk contingencies, eroding 3-5% of bid margin during execution.",
+      solution: "Estimating with Impact methodology audits hidden costs and establishes disciplined pre-con bid reviews.",
     },
   ];
 
   return (
-    <section id="friction" className="bg-[#0C263D] text-white py-16 lg:py-24 relative overflow-hidden">
+    <section id="friction" className="bg-[#0C263D] text-white py-20 lg:py-28 relative overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section Headline */}
         <div className="max-w-3xl">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#B64F43]">
+          <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B64F43]">
             Where Margin Actually Bleeds
           </p>
-          <h2 className="font-serif-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-2 leading-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-2 leading-tight">
             The expensive problems are often conversations nobody had.
           </h2>
           <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-            In construction, leadership and communication breakdowns are not just 'people issues'—they are financial risks. They lead to rework, schedule delays, lost margin, and strained relationships.
+            In construction, leadership and communication breakdowns are not just 'soft skills'—they are immediate financial risks. They lead to rework, schedule delays, lost margin, and burned-out talent.
           </p>
         </div>
 
-        {/* 4 Friction Cards */}
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {frictionPoints.map((item) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={item.title}
-                className="rounded-xl border border-white/10 bg-white/5 p-6 flex flex-col justify-between hover:border-[#B64F43] transition-colors"
-              >
-                <div>
-                  <div className="flex size-10 items-center justify-center rounded-lg bg-[#B64F43]/20 text-[#B64F43]">
-                    <Icon className="size-5" />
-                  </div>
-                  <h3 className="font-serif-heading text-lg font-bold text-white mt-4">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-xs text-slate-300 leading-relaxed">
-                    {item.text}
-                  </p>
-                </div>
-                <div className="mt-4 pt-3 border-t border-white/10">
-                  <span className="text-[0.7rem] font-bold uppercase tracking-wider text-[#B64F43]">
-                    {item.stat}
-                  </span>
-                </div>
+        <div className="mt-14 rounded-2xl border border-white/15 bg-white/5 overflow-hidden backdrop-blur shadow-2xl">
+          <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/10">
+            <div className="p-8 sm:p-10 space-y-6">
+              <div className="flex items-center gap-2 text-rose-400 font-extrabold text-xs uppercase tracking-wider">
+                <XCircle className="size-4" />
+                <span>The Unmanaged Jobsite Reality</span>
               </div>
-            );
-          })}
-        </div>
+              <h3 className="font-serif text-2xl font-bold text-white">
+                How Miscommunication Destroys Margin:
+              </h3>
+              <ul className="space-y-4 text-xs sm:text-sm text-slate-300">
+                {comparison.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <span className="size-1.5 rounded-full bg-rose-400 mt-2 shrink-0" />
+                    <span>{item.problem}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-        {/* Commercial Realization Box */}
-        <div className="mt-12 rounded-xl border border-white/15 bg-white/10 p-8 backdrop-blur flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="space-y-1">
-            <h4 className="font-serif-heading text-xl font-bold text-white">
-              Leadership training is insurance for your jobsite margins.
-            </h4>
-            <p className="text-xs sm:text-sm text-slate-300 max-w-2xl">
-              Dan bridges the gap between field technical knowledge and human leadership—giving your teams practical frameworks to communicate clearly, resolve conflict, and protect the bid.
-            </p>
+            <div className="p-8 sm:p-10 space-y-6 bg-white/[0.03]">
+              <div className="flex items-center gap-2 text-emerald-400 font-extrabold text-xs uppercase tracking-wider">
+                <CheckCircle2 className="size-4" />
+                <span>The Constructive Leadership Standard</span>
+              </div>
+              <h3 className="font-serif text-2xl font-bold text-white">
+                How Dan Beatty's System Protects the Job:
+              </h3>
+              <ul className="space-y-4 text-xs sm:text-sm text-slate-200">
+                {comparison.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <CheckCircle2 className="size-4 text-[#B64F43] shrink-0 mt-0.5" />
+                    <span>{item.solution}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <a
-            href="#contractors"
-            className="inline-flex items-center gap-2 rounded bg-white px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#0C263D] hover:bg-slate-100 transition-colors shrink-0"
-          >
-            <span>See How Dan Fixes This</span>
-          </a>
         </div>
       </div>
     </section>
