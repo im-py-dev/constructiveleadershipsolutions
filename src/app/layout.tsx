@@ -2,41 +2,44 @@ import type { Metadata } from "next";
 import { Lora, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const serif = Lora({
-  subsets: ["latin"],
+const lora = Lora({
   variable: "--font-serif",
+  subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700"],
 });
 
-const sans = Plus_Jakarta_Sans({
-  subsets: ["latin"],
+const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-sans",
+  subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
-  title: "Constructive Leadership Solutions | Dan Beatty | Construction Leadership Speaker & Training",
-  description: "Dan Beatty helps construction associations and contractors turn high-stress jobsites into high-performing teams through practical keynotes, PM development, and executive leadership coaching.",
+  title: "Dan Beatty | Constructive Leadership Solutions | Construction Keynote Speaker & Training",
+  description: "Approved AGC Edge instructor and construction veteran since 1984. Dan Beatty provides high-impact keynotes for AGC conventions and multi-session leadership development programs for project managers and superintendents.",
+  keywords: [
+    "construction leadership speaker",
+    "AGC keynote speaker",
+    "construction PM training",
+    "superintendent leadership",
+    "Dan Beatty",
+    "Constructive Leadership Solutions",
+    "5 Voices construction",
+    "estimating with impact"
+  ],
+  authors: [{ name: "Dan Beatty", url: "https://constructiveleadershipsolutions.com" }],
   openGraph: {
-    title: "Constructive Leadership Solutions | Dan Beatty",
-    description: "Build the number. Lead the people who have to hit it. Construction leadership from someone who has lived it since 1984.",
-    url: "https://constructiveleadershipsolutions.com",
+    title: "Dan Beatty | Constructive Leadership Solutions",
+    description: "Build the number. Lead the people who have to hit it. Keynotes, Project Manager Development, and Cohort Training for Construction.",
+    url: "https://constructiveleadershipsolutions.vercel.app",
     siteName: "Constructive Leadership Solutions",
-    images: [
-      {
-        url: "https://constructiveleadershipsolutions.com/wp-content/uploads/2026/08/01-Dan-Beatty_Standing.png",
-        width: 1200,
-        height: 630,
-        alt: "Dan Beatty - Constructive Leadership Solutions",
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
-  icons: {
-    icon: "https://constructiveleadershipsolutions.com/wp-content/uploads/2025/04/cropped-Constructive-Leadership-Solutions-Light-Logo-March-2025-32x32.png",
+  twitter: {
+    card: "summary_large_image",
+    title: "Dan Beatty | Construction Leadership Speaker & Training",
+    description: "Build the number. Lead the people who have to hit it.",
   },
 };
 
@@ -45,9 +48,51 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://constructiveleadershipsolutions.com/#danbeatty",
+        "name": "Daniel 'Dan' Beatty",
+        "jobTitle": "Construction Leadership Speaker & Trainer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Constructive Leadership Solutions",
+          "url": "https://constructiveleadershipsolutions.com"
+        },
+        "description": "Approved AGC Edge instructor with 40+ years of construction experience since 1984, Certified 5 Voices Facilitator, and Certified Values Identifier Coach.",
+        "sameAs": [
+          "https://www.linkedin.com/in/danbeattycls/",
+          "https://calendly.com/dan-danbeatty"
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://constructiveleadershipsolutions.com/#organization",
+        "name": "Constructive Leadership Solutions",
+        "url": "https://constructiveleadershipsolutions.com",
+        "telephone": "+17033807923",
+        "email": "dan@constructiveleadershipsolutions.com",
+        "description": "High-impact keynote speaking for construction associations and multi-session leadership training for general and specialty contractors.",
+        "founder": {
+          "@id": "https://constructiveleadershipsolutions.com/#danbeatty"
+        }
+      }
+    ]
+  };
+
   return (
-    <html lang="en" className={`${serif.variable} ${sans.variable} scroll-smooth`}>
-      <body className="font-sans antialiased bg-white text-[#0C263D] selection:bg-[#B64F43] selection:text-white">
+    <html lang="en" className="scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body
+        className={`${lora.variable} ${plusJakarta.variable} font-sans antialiased bg-white text-slate-900`}
+      >
         {children}
       </body>
     </html>

@@ -6,6 +6,8 @@ import { Hero } from "@/components/hero";
 import { BuyerRouting } from "@/components/buyer-routing";
 import { SpeakerKit } from "@/components/speaker-kit";
 import { TrainingPrograms } from "@/components/training-programs";
+import { CohortProgram } from "@/components/cohort-program";
+import { PodcastsMedia } from "@/components/podcasts-media";
 import { TheFriction } from "@/components/the-friction";
 import { AboutDan } from "@/components/about-dan";
 import { LeadCapture } from "@/components/lead-capture";
@@ -15,21 +17,23 @@ import { Footer } from "@/components/footer";
 import { CalendlyModal } from "@/components/modals/calendly-modal";
 import { SpeakerKitModal } from "@/components/modals/speaker-kit-modal";
 import { DiagnosticModal } from "@/components/modals/diagnostic-modal";
+import { CohortApplyModal } from "@/components/modals/cohort-apply-modal";
 
 export default function HomePage() {
   const [calendlyOpen, setCalendlyOpen] = useState(false);
   const [speakerKitOpen, setSpeakerKitOpen] = useState(false);
   const [diagnosticOpen, setDiagnosticOpen] = useState(false);
+  const [cohortApplyOpen, setCohortApplyOpen] = useState(false);
 
   return (
     <main className="min-h-screen flex flex-col bg-white">
-      {/* 1. Header */}
+      {/* 1. Sticky Navigation & Credential Bar */}
       <Header
         onOpenCalendly={() => setCalendlyOpen(true)}
         onOpenSpeakerKit={() => setSpeakerKitOpen(true)}
       />
 
-      {/* 2. Hero Section (Dan Standing Cutout Sticking to Bottom + Persona Switcher) */}
+      {/* 2. Hero Section (Dan Standing Cutout Sticking to Floor + 3-Persona Switcher) */}
       <Hero
         onOpenCalendly={() => setCalendlyOpen(true)}
         onOpenSpeakerKit={() => setSpeakerKitOpen(true)}
@@ -42,34 +46,45 @@ export default function HomePage() {
         onOpenSpeakerKit={() => setSpeakerKitOpen(true)}
       />
 
-      {/* 4. Speaker Kit & Live Stage Footage */}
+      {/* 4. Speaker Kit & Live Stage Footage (Vimeo + 4 Keynote Topics + Committee Email) */}
       <SpeakerKit
         onOpenCalendly={() => setCalendlyOpen(true)}
         onOpenSpeakerKit={() => setSpeakerKitOpen(true)}
       />
 
-      {/* 5. Contractor Training Programs (With Interactive Curriculum Tabs) */}
+      {/* 5. Contractor Training Programs (Interactive Curriculum Tabs) */}
       <TrainingPrograms
         onOpenCalendly={() => setCalendlyOpen(true)}
       />
 
-      {/* 6. The Friction Matrix & Margin Loss Calculator */}
+      {/* 6. Scalable Construction Leadership Cohort & Academy */}
+      <CohortProgram
+        onOpenCalendly={() => setCalendlyOpen(true)}
+        onOpenCohortApply={() => setCohortApplyOpen(true)}
+      />
+
+      {/* 7. Podcasts & Media Guest Appearances */}
+      <PodcastsMedia
+        onOpenCalendly={() => setCalendlyOpen(true)}
+      />
+
+      {/* 8. The Friction Matrix & Interactive Margin Risk Calculator */}
       <TheFriction />
 
-      {/* 7. About Dan Beatty (In-The-Trenches Credibility) */}
+      {/* 9. About Dan Beatty (In-The-Trenches 1984 Credibility) */}
       <AboutDan
         onOpenCalendly={() => setCalendlyOpen(true)}
       />
 
-      {/* 8. Lead Capture (Newsletter + Diagnostic Tool) */}
+      {/* 10. Lead Capture (Culture Under Construction Newsletter + Readiness Diagnostic) */}
       <LeadCapture
         onOpenDiagnostic={() => setDiagnosticOpen(true)}
       />
 
-      {/* 9. Testimonials & Social Proof */}
+      {/* 11. Testimonials & Social Proof (Filterable by Buyer) */}
       <Testimonials />
 
-      {/* 10. Comprehensive Luxury Footer */}
+      {/* 12. Comprehensive Luxury Footer */}
       <Footer
         onOpenCalendly={() => setCalendlyOpen(true)}
         onOpenSpeakerKit={() => setSpeakerKitOpen(true)}
@@ -101,6 +116,12 @@ export default function HomePage() {
       <DiagnosticModal
         isOpen={diagnosticOpen}
         onClose={() => setDiagnosticOpen(false)}
+        onOpenCalendly={() => setCalendlyOpen(true)}
+      />
+
+      <CohortApplyModal
+        isOpen={cohortApplyOpen}
+        onClose={() => setCohortApplyOpen(false)}
         onOpenCalendly={() => setCalendlyOpen(true)}
       />
     </main>

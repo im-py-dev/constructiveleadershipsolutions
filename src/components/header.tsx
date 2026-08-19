@@ -18,6 +18,8 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
     { label: "For Contractors", href: "#contractors" },
     { label: "Speaker Reel", href: "#speaker-reel" },
     { label: "Training Tracks", href: "#training-programs" },
+    { label: "Cohort Academy", href: "#cohort-program" },
+    { label: "Podcasts", href: "#podcasts" },
     { label: "The Friction", href: "#friction" },
     { label: "About Dan", href: "#about" },
     { label: "Newsletter", href: "#newsletter" },
@@ -25,6 +27,7 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur-md transition-all shadow-sm">
+      {/* Top Notification Bar */}
       <div className="hidden border-b border-slate-800 bg-[#0C263D] px-4 py-2 text-xs text-slate-300 md:block">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           <div className="flex items-center gap-5">
@@ -56,6 +59,7 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
         </div>
       </div>
 
+      {/* Main Navbar */}
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <a href="#overview" className="flex items-center gap-3 group">
           <div className="relative h-11 w-48 sm:h-12 sm:w-56 rounded-lg bg-[#0C263D] p-1.5 shadow-sm group-hover:shadow transition-shadow">
@@ -69,18 +73,20 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
           </div>
         </a>
 
-        <nav className="hidden xl:flex items-center gap-1 text-[0.84rem] font-bold text-[#31485A]">
+        {/* Desktop Navigation */}
+        <nav className="hidden xl:flex items-center gap-1 text-[0.82rem] font-bold text-[#31485A]">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="rounded-md px-3 py-2 text-slate-700 hover:bg-slate-100 hover:text-[#0C263D] transition-colors"
+              className="rounded-md px-2.5 py-2 text-slate-700 hover:bg-slate-100 hover:text-[#0C263D] transition-colors"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
+        {/* Action Buttons */}
         <div className="flex items-center gap-2.5 sm:gap-3">
           <button
             type="button"
@@ -112,6 +118,7 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
         </div>
       </div>
 
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="border-b border-slate-200 bg-white px-4 py-5 xl:hidden shadow-xl animate-in slide-in-from-top-2 duration-200">
           <div className="flex flex-col gap-1.5">
@@ -120,7 +127,7 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="rounded-lg px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-100"
+                className="rounded-lg px-3.5 py-2 text-sm font-bold text-slate-800 hover:bg-slate-100"
               >
                 {link.label}
               </a>
@@ -135,7 +142,7 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
                 className="flex items-center justify-center gap-2 rounded-lg border border-slate-300 py-3 text-xs font-extrabold uppercase tracking-wider text-[#0C263D]"
               >
                 <Download className="size-4 text-[#B64F43]" />
-                <span>Download Speaker Kit</span>
+                <span>Download Speaker Kit (One-Sheets)</span>
               </button>
               <button
                 type="button"

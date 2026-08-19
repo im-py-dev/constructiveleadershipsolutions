@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { CheckCircle2, Award, ShieldCheck, Briefcase, Users, FileCheck, Phone, Calendar } from "lucide-react";
+import { CheckCircle2, Award, ShieldCheck, Briefcase, Users, FileCheck, Phone, Calendar, ArrowRight } from "lucide-react";
 
 interface AboutDanProps {
   onOpenCalendly: () => void;
@@ -11,7 +11,7 @@ export function AboutDan({ onOpenCalendly }: AboutDanProps) {
   const credentials = [
     {
       title: "Construction Since 1984",
-      detail: "Over 40 years of hands-on experience in estimating, project management, operations, and executive leadership.",
+      detail: "40+ years of boots-on-the-ground experience in estimating, project management, field operations, and executive leadership.",
     },
     {
       title: "Approved AGC Edge Instructor",
@@ -19,11 +19,11 @@ export function AboutDan({ onOpenCalendly }: AboutDanProps) {
     },
     {
       title: "Certified 5 Voices Facilitator",
-      detail: "Accredited through GiANT Worldwide to decode team dynamics, personality differences, and jobsite communication.",
+      detail: "Accredited through GiANT Worldwide to decode team dynamics, communication friction, and jobsite personalities.",
     },
     {
       title: "Certified Values Identifier Coach",
-      detail: "Guiding executive teams to establish operational values that drive real daily accountability on jobsites.",
+      detail: "Guiding executive teams to establish operational values that drive real accountability on commercial jobsites.",
     },
   ];
 
@@ -31,6 +31,7 @@ export function AboutDan({ onOpenCalendly }: AboutDanProps) {
     <section id="about" className="bg-white py-20 lg:py-28 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-12">
+          {/* Left Column: Story & Background */}
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3.5 py-1 text-xs font-extrabold uppercase tracking-[0.16em] text-[#B64F43]">
               <span>In The Trenches Credibility</span>
@@ -48,9 +49,10 @@ export function AboutDan({ onOpenCalendly }: AboutDanProps) {
               He understands the reality of 6:00 AM jobsite tailgates, concrete pours under weather pressure, subcontractor disputes, and the constant friction between field production and office accounting.
             </p>
 
+            {/* 4 Credentials Grid */}
             <div className="grid gap-4 sm:grid-cols-2 pt-2">
               {credentials.map((cred) => (
-                <div key={cred.title} className="rounded-xl border border-slate-200 bg-slate-50 p-5">
+                <div key={cred.title} className="rounded-xl border border-slate-200 bg-slate-50/80 p-5 hover:border-[#B64F43]/40 transition-colors">
                   <p className="font-bold text-xs uppercase tracking-wider text-[#0C263D] flex items-center gap-2">
                     <CheckCircle2 className="size-4 text-[#B64F43] shrink-0" />
                     <span>{cred.title}</span>
@@ -62,6 +64,7 @@ export function AboutDan({ onOpenCalendly }: AboutDanProps) {
               ))}
             </div>
 
+            {/* Direct Action Buttons */}
             <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <button
                 type="button"
@@ -82,6 +85,7 @@ export function AboutDan({ onOpenCalendly }: AboutDanProps) {
             </div>
           </div>
 
+          {/* Right Column: Quote & Circular Headshot Card */}
           <div className="lg:col-span-5 flex flex-col items-center">
             <div className="w-full rounded-2xl border border-slate-200 bg-[#0C263D] text-white p-8 sm:p-10 shadow-2xl relative overflow-hidden">
               <div className="pointer-events-none absolute -top-20 -right-20 size-48 rounded-full bg-[#B64F43]/20 blur-3xl" />
@@ -95,12 +99,13 @@ export function AboutDan({ onOpenCalendly }: AboutDanProps) {
               </blockquote>
 
               <div className="mt-8 pt-6 border-t border-white/10 flex items-center gap-4">
-                <div className="relative size-16 rounded-full overflow-hidden border-2 border-[#B64F43] shrink-0 bg-white/10 shadow-md">
+                {/* Clean Circular Headshot */}
+                <div className="relative size-16 rounded-full overflow-hidden border-2 border-[#B64F43] shrink-0 bg-white shadow-md">
                   <Image
-                    src="/dan-hero.png"
-                    alt="Dan Beatty"
+                    src="/dan-headshot.png"
+                    alt="Dan Beatty Headshot"
                     fill
-                    className="object-cover object-top scale-135"
+                    className="object-cover object-top"
                   />
                 </div>
                 <div>
