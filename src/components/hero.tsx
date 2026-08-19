@@ -44,17 +44,15 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
 
   return (
     <section id="overview" className="relative overflow-hidden bg-blueprint-dark text-white pt-10 sm:pt-14 lg:pt-16 pb-0 border-b border-slate-800">
-      {/* Ambient Lighting & Blueprint Glow */}
-      <div className="pointer-events-none absolute -top-40 right-10 size-[650px] rounded-full bg-[#B64F43]/20 blur-[140px]" />
-      <div className="pointer-events-none absolute top-1/2 left-0 size-[500px] rounded-full bg-[#31485A]/40 blur-[120px]" />
+      <div className="pointer-events-none absolute -top-40 right-10 size-[700px] rounded-full bg-[#B64F43]/20 blur-[150px]" />
+      <div className="pointer-events-none absolute top-1/2 left-0 size-[550px] rounded-full bg-[#31485A]/40 blur-[130px]" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Top Interactive Persona Switcher */}
         <div className="mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
           <div className="flex items-center gap-2">
             <span className="flex size-2 rounded-full bg-[#B64F43] animate-ping" />
             <span className="text-[0.7rem] sm:text-xs font-extrabold uppercase tracking-[0.2em] text-slate-300">
-              Select Your Role:
+              Select Your Focus:
             </span>
           </div>
 
@@ -62,31 +60,29 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
             <button
               type="button"
               onClick={() => setSelectedPersona("associations")}
-              className={"rounded-full px-3.5 py-1.5 text-xs font-bold transition-all cursor-pointer " + (selectedPersona === "associations" ? "bg-[#B64F43] text-white shadow-md ring-2 ring-[#B64F43]/40" : "bg-white/10 text-slate-300 hover:bg-white/15")}
+              className={"rounded-full px-4 py-2 text-xs font-bold transition-all cursor-pointer " + (selectedPersona === "associations" ? "bg-[#B64F43] text-white shadow-lg ring-2 ring-[#B64F43]/40" : "bg-white/10 text-slate-300 hover:bg-white/15")}
             >
               🏛️ Associations & Event Planners
             </button>
             <button
               type="button"
               onClick={() => setSelectedPersona("contractors")}
-              className={"rounded-full px-3.5 py-1.5 text-xs font-bold transition-all cursor-pointer " + (selectedPersona === "contractors" ? "bg-[#B64F43] text-white shadow-md ring-2 ring-[#B64F43]/40" : "bg-white/10 text-slate-300 hover:bg-white/15")}
+              className={"rounded-full px-4 py-2 text-xs font-bold transition-all cursor-pointer " + (selectedPersona === "contractors" ? "bg-[#B64F43] text-white shadow-lg ring-2 ring-[#B64F43]/40" : "bg-white/10 text-slate-300 hover:bg-white/15")}
             >
               🏗️ Contractors & Operations VPs
             </button>
             <button
               type="button"
               onClick={() => setSelectedPersona("estimating")}
-              className={"rounded-full px-3.5 py-1.5 text-xs font-bold transition-all cursor-pointer " + (selectedPersona === "estimating" ? "bg-[#B64F43] text-white shadow-md ring-2 ring-[#B64F43]/40" : "bg-white/10 text-slate-300 hover:bg-white/15")}
+              className={"rounded-full px-4 py-2 text-xs font-bold transition-all cursor-pointer " + (selectedPersona === "estimating" ? "bg-[#B64F43] text-white shadow-lg ring-2 ring-[#B64F43]/40" : "bg-white/10 text-slate-300 hover:bg-white/15")}
             >
               📐 Estimating & Pre-Con
             </button>
           </div>
         </div>
 
-        {/* Main Hero Grid */}
-        <div className="grid items-end gap-10 lg:grid-cols-12 lg:gap-8">
-          {/* Left Column: Core Positioning Copy & Dual CTAs */}
-          <div className="lg:col-span-7 pb-12 sm:pb-16 lg:pb-20 space-y-6">
+        <div className="grid items-end gap-8 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-7 pb-12 sm:pb-16 lg:pb-24 space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1 text-xs font-bold uppercase tracking-[0.16em] text-[#B64F43] backdrop-blur">
               <Sparkles className="size-3.5" />
               <span>{current.tag}</span>
@@ -103,7 +99,6 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
               {current.subtext}
             </p>
 
-            {/* Authority Trust Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
               <div className="rounded-lg border border-white/10 bg-white/5 p-3 backdrop-blur">
                 <p className="font-extrabold text-[#B64F43] text-xs sm:text-sm tracking-wide">SINCE 1984</p>
@@ -123,7 +118,6 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
               </div>
             </div>
 
-            {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-3">
               <a
                 href={current.ctaPrimaryHref}
@@ -152,25 +146,21 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
             </div>
           </div>
 
-          {/* Right Column: Dan Beatty Cutout (STICKING TO THE BOTTOM) */}
-          <div className="lg:col-span-5 relative flex items-end justify-center lg:justify-end self-end h-full min-h-[460px] sm:min-h-[540px] lg:min-h-[620px]">
-            {/* Ambient Radial Spotlight Behind Dan */}
-            <div className="pointer-events-none absolute bottom-0 inset-x-0 h-4/5 rounded-t-full bg-gradient-to-t from-[#B64F43]/20 via-[#31485A]/30 to-transparent blur-2xl" />
+          <div className="lg:col-span-5 relative flex items-end justify-center lg:justify-end self-end h-full min-h-[500px] sm:min-h-[600px] lg:min-h-[720px]">
+            <div className="pointer-events-none absolute bottom-0 inset-x-0 h-4/5 rounded-t-full bg-gradient-to-t from-[#B64F43]/25 via-[#31485A]/35 to-transparent blur-3xl" />
 
-            {/* Dan's Cutout Image - Sticking to Bottom Floor */}
-            <div className="relative z-10 flex items-end justify-center">
+            <div className="relative z-10 flex items-end justify-center w-full">
               <Image
                 src="/dan-hero.png"
                 alt="Daniel Dan Beatty - Construction Leadership Speaker & Trainer"
-                width={560}
-                height={700}
+                width={650}
+                height={850}
                 priority
-                className="object-contain object-bottom drop-shadow-2xl -mb-px max-h-[500px] sm:max-h-[580px] lg:max-h-[640px] w-auto pointer-events-none"
+                className="object-contain object-bottom drop-shadow-2xl -mb-px max-h-[540px] sm:max-h-[640px] lg:max-h-[750px] w-auto pointer-events-none"
               />
             </div>
 
-            {/* Floating Credential Badge #1 (Top-Left) */}
-            <div className="absolute top-10 -left-4 sm:left-0 z-20 rounded-xl border border-white/20 bg-[#0C263D]/90 p-3 shadow-2xl backdrop-blur-md hidden sm:flex items-center gap-3">
+            <div className="absolute top-8 left-2 sm:left-0 z-20 rounded-xl border border-white/20 bg-[#0C263D]/90 p-3 shadow-2xl backdrop-blur-md hidden sm:flex items-center gap-3">
               <div className="flex size-9 items-center justify-center rounded-lg bg-[#B64F43] text-white">
                 <Award className="size-5" />
               </div>
@@ -180,8 +170,7 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
               </div>
             </div>
 
-            {/* Floating Credential Badge #2 (Bottom-Left Callout) */}
-            <div className="absolute bottom-6 left-2 right-2 sm:left-4 sm:right-auto sm:max-w-xs z-20 rounded-xl border border-white/25 bg-[#0C263D]/95 p-3.5 shadow-2xl backdrop-blur-md">
+            <div className="absolute bottom-6 -left-6 sm:left-0 max-w-xs z-20 rounded-xl border border-white/25 bg-[#0C263D]/95 p-3.5 shadow-2xl backdrop-blur-md hidden md:block">
               <p className="text-[0.78rem] font-serif italic text-slate-100 leading-snug">
                 "I teach contractors how to build the number, and how to lead the people who have to hit it."
               </p>
@@ -196,15 +185,14 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
         </div>
       </div>
 
-      {/* Association Credibility Bar */}
       <div className="border-t border-white/10 bg-[#081B2C] py-5">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-slate-400">
               Trusted by Leading Construction Associations:
             </span>
-            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs font-bold text-slate-300">
-              <span className="rounded bg-white/5 px-3 py-1.5 border border-white/10">Associated General Contractors of America</span>
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs font-bold text-slate-300">
+              <span className="rounded bg-white/5 px-3 py-1.5 border border-white/10">Associated General Contractors of America (AGC)</span>
               <span className="rounded bg-white/5 px-3 py-1.5 border border-white/10">AGC Edge</span>
               <span className="rounded bg-white/5 px-3 py-1.5 border border-white/10">Carolinas AGC</span>
               <span className="rounded bg-white/5 px-3 py-1.5 border border-white/10">VTCA</span>

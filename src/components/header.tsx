@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Menu, X, ArrowRight, Phone, Download, Calendar } from "lucide-react";
+import { Menu, X, ArrowRight, Phone, Download, Calendar, HardHat } from "lucide-react";
 
 interface HeaderProps {
   onOpenCalendly: () => void;
@@ -24,7 +24,7 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200/90 bg-white/95 backdrop-blur-md transition-all shadow-sm">
+    <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur-md transition-all shadow-sm">
       <div className="hidden border-b border-slate-800 bg-[#0C263D] px-4 py-2 text-xs text-slate-300 md:block">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           <div className="flex items-center gap-5">
@@ -57,14 +57,14 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
       </div>
 
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <a href="#overview" className="flex items-center gap-3">
-          <div className="relative h-11 w-48 sm:h-12 sm:w-60">
+        <a href="#overview" className="flex items-center gap-3 group">
+          <div className="relative h-11 w-48 sm:h-12 sm:w-56 rounded-lg bg-[#0C263D] p-1.5 shadow-sm group-hover:shadow transition-shadow">
             <Image
               src="https://constructiveleadershipsolutions.com/wp-content/uploads/2025/04/Constructive-Leadership-Solutions-Dark-Logo-March-2025-e1744120204726.png"
               alt="Constructive Leadership Solutions"
               fill
               priority
-              className="object-contain object-left"
+              className="object-contain p-1"
             />
           </div>
         </a>
@@ -113,7 +113,7 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
       </div>
 
       {mobileMenuOpen && (
-        <div className="border-b border-slate-200 bg-white px-4 py-5 xl:hidden shadow-xl">
+        <div className="border-b border-slate-200 bg-white px-4 py-5 xl:hidden shadow-xl animate-in slide-in-from-top-2 duration-200">
           <div className="flex flex-col gap-1.5">
             {navLinks.map((link) => (
               <a
