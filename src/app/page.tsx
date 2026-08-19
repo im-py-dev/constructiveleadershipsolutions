@@ -29,10 +29,11 @@ export default function HomePage() {
         onOpenSpeakerKit={() => setSpeakerKitOpen(true)}
       />
 
-      {/* 2. Hero Section */}
+      {/* 2. Hero Section (Dan Standing Cutout Sticking to Bottom + Persona Switcher) */}
       <Hero
         onOpenCalendly={() => setCalendlyOpen(true)}
         onOpenSpeakerKit={() => setSpeakerKitOpen(true)}
+        onOpenDiagnostic={() => setDiagnosticOpen(true)}
       />
 
       {/* 3. Dual Buyer Objective Routing */}
@@ -47,12 +48,12 @@ export default function HomePage() {
         onOpenSpeakerKit={() => setSpeakerKitOpen(true)}
       />
 
-      {/* 5. Contractor Training Programs */}
+      {/* 5. Contractor Training Programs (With Interactive Curriculum Tabs) */}
       <TrainingPrograms
         onOpenCalendly={() => setCalendlyOpen(true)}
       />
 
-      {/* 6. The Friction Matrix & Financial Risk */}
+      {/* 6. The Friction Matrix & Margin Loss Calculator */}
       <TheFriction />
 
       {/* 7. About Dan Beatty (In-The-Trenches Credibility) */}
@@ -79,7 +80,7 @@ export default function HomePage() {
         <button
           type="button"
           onClick={() => setDiagnosticOpen(true)}
-          className="flex items-center gap-2 rounded-full border border-[#B64F43] bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-[#0C263D] shadow-xl hover:bg-slate-50 transition-all cursor-pointer ring-1 ring-black/5"
+          className="flex items-center gap-2 rounded-full border border-[#B64F43] bg-white px-4 py-2.5 text-xs font-extrabold uppercase tracking-wider text-[#0C263D] shadow-2xl hover:bg-slate-50 transition-all cursor-pointer ring-1 ring-black/10"
         >
           <span className="flex size-2 rounded-full bg-[#B64F43] animate-ping" />
           <span>🎯 Free Leadership Diagnostic</span>

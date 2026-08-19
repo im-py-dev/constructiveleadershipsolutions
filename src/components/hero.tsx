@@ -1,25 +1,95 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
-import { ArrowRight, Mic, HardHat } from "lucide-react";
+import { ArrowRight, Mic, HardHat, ShieldCheck, Award, Calculator, CheckCircle2, ChevronRight, Sparkles } from "lucide-react";
 
 interface HeroProps {
   onOpenCalendly: () => void;
   onOpenSpeakerKit: () => void;
+  onOpenDiagnostic: () => void;
 }
 
-export function Hero({ onOpenCalendly, onOpenSpeakerKit }: HeroProps) {
+export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: HeroProps) {
+  const [selectedPersona, setSelectedPersona] = useState<"associations" | "contractors" | "estimating">("associations");
+
+  const personaDetails = {
+    associations: {
+      tag: "For AGC Chapters, Associations & Event Planners",
+      subtext: "High-impact keynotes and interactive convention breakouts tailored to construction leaders, superintendents, and project managers. Committee-approved one-sheets & live footage ready.",
+      ctaPrimary: "Explore Keynote Topics & Reel",
+      ctaPrimaryHref: "#associations",
+      ctaSecondary: "Download Speaker Kit",
+      ctaSecondaryAction: onOpenSpeakerKit,
+    },
+    contractors: {
+      tag: "For Contractors, Owners & Operations Executives",
+      subtext: "Turn master craftspeople into respected field superintendents and empower PMs to own jobsite profitability, hold subs accountable, and protect bid margins.",
+      ctaPrimary: "View Contractor Programs",
+      ctaPrimaryHref: "#contractors",
+      ctaSecondary: "Take Free Field Diagnostic",
+      ctaSecondaryAction: onOpenDiagnostic,
+    },
+    estimating: {
+      tag: "For Chief Estimators & Pre-Construction Teams",
+      subtext: "Audit hidden indirect costs, eliminate bid contingency blind spots, and bridge the handover gap between estimating assumptions and field execution.",
+      ctaPrimary: "Explore Estimating with Impact",
+      ctaPrimaryHref: "#training-programs",
+      ctaSecondary: "Discuss Team Workshop",
+      ctaSecondaryAction: onOpenCalendly,
+    },
+  };
+
+  const current = personaDetails[selectedPersona];
+
   return (
-    <section id="overview" className="relative overflow-hidden bg-blueprint-dark text-white pt-12 pb-18 lg:pt-16 lg:pb-28">
-      <div className="pointer-events-none absolute -top-40 right-0 size-[700px] rounded-full bg-[#B64F43]/18 blur-[130px]" />
-      <div className="pointer-events-none absolute bottom-0 left-0 size-[600px] rounded-full bg-[#31485A]/35 blur-[110px]" />
+    <section id="overview" className="relative overflow-hidden bg-blueprint-dark text-white pt-10 sm:pt-14 lg:pt-16 pb-0 border-b border-slate-800">
+      {/* Ambient Lighting & Blueprint Glow */}
+      <div className="pointer-events-none absolute -top-40 right-10 size-[650px] rounded-full bg-[#B64F43]/20 blur-[140px]" />
+      <div className="pointer-events-none absolute top-1/2 left-0 size-[500px] rounded-full bg-[#31485A]/40 blur-[120px]" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-7 space-y-7">
-            <div className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.2em] text-[#B64F43] backdrop-blur-md">
-              <span className="size-2 rounded-full bg-[#B64F43] animate-ping" />
-              <span>Construction Leadership & Field Mastery</span>
+        {/* Top Interactive Persona Switcher */}
+        <div className="mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
+          <div className="flex items-center gap-2">
+            <span className="flex size-2 rounded-full bg-[#B64F43] animate-ping" />
+            <span className="text-[0.7rem] sm:text-xs font-extrabold uppercase tracking-[0.2em] text-slate-300">
+              Select Your Role:
+            </span>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+            <button
+              type="button"
+              onClick={() => setSelectedPersona("associations")}
+              className={"rounded-full px-3.5 py-1.5 text-xs font-bold transition-all cursor-pointer " + (selectedPersona === "associations" ? "bg-[#B64F43] text-white shadow-md ring-2 ring-[#B64F43]/40" : "bg-white/10 text-slate-300 hover:bg-white/15")}
+            >
+              🏛️ Associations & Event Planners
+            </button>
+            <button
+              type="button"
+              onClick={() => setSelectedPersona("contractors")}
+              className={"rounded-full px-3.5 py-1.5 text-xs font-bold transition-all cursor-pointer " + (selectedPersona === "contractors" ? "bg-[#B64F43] text-white shadow-md ring-2 ring-[#B64F43]/40" : "bg-white/10 text-slate-300 hover:bg-white/15")}
+            >
+              🏗️ Contractors & Operations VPs
+            </button>
+            <button
+              type="button"
+              onClick={() => setSelectedPersona("estimating")}
+              className={"rounded-full px-3.5 py-1.5 text-xs font-bold transition-all cursor-pointer " + (selectedPersona === "estimating" ? "bg-[#B64F43] text-white shadow-md ring-2 ring-[#B64F43]/40" : "bg-white/10 text-slate-300 hover:bg-white/15")}
+            >
+              📐 Estimating & Pre-Con
+            </button>
+          </div>
+        </div>
+
+        {/* Main Hero Grid */}
+        <div className="grid items-end gap-10 lg:grid-cols-12 lg:gap-8">
+          {/* Left Column: Core Positioning Copy & Dual CTAs */}
+          <div className="lg:col-span-7 pb-12 sm:pb-16 lg:pb-20 space-y-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1 text-xs font-bold uppercase tracking-[0.16em] text-[#B64F43] backdrop-blur">
+              <Sparkles className="size-3.5" />
+              <span>{current.tag}</span>
             </div>
 
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.08]">
@@ -30,92 +100,116 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit }: HeroProps) {
             </h1>
 
             <p className="max-w-2xl text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
-              Dan Beatty bridges the critical gap between jobsite numbers and field leadership—helping AGC chapters, construction associations, and contractors turn high-stress projects into high-performing, profitable teams.
+              {current.subtext}
             </p>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-              <div className="rounded-lg border border-white/10 bg-white/5 p-3.5 backdrop-blur">
-                <p className="font-extrabold text-[#B64F43] text-sm tracking-wide">SINCE 1984</p>
-                <p className="text-slate-300 text-xs font-medium mt-0.5">40+ Yrs in Construction</p>
+            {/* Authority Trust Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
+              <div className="rounded-lg border border-white/10 bg-white/5 p-3 backdrop-blur">
+                <p className="font-extrabold text-[#B64F43] text-xs sm:text-sm tracking-wide">SINCE 1984</p>
+                <p className="text-slate-300 text-[0.72rem] mt-0.5">40+ Yrs in Construction</p>
               </div>
-              <div className="rounded-lg border border-white/10 bg-white/5 p-3.5 backdrop-blur">
-                <p className="font-extrabold text-white text-sm tracking-wide">AGC EDGE</p>
-                <p className="text-slate-300 text-xs font-medium mt-0.5">Approved Instructor</p>
+              <div className="rounded-lg border border-white/10 bg-white/5 p-3 backdrop-blur">
+                <p className="font-extrabold text-white text-xs sm:text-sm tracking-wide">AGC EDGE</p>
+                <p className="text-slate-300 text-[0.72rem] mt-0.5">Approved Instructor</p>
               </div>
-              <div className="rounded-lg border border-white/10 bg-white/5 p-3.5 backdrop-blur">
-                <p className="font-extrabold text-[#B64F43] text-sm tracking-wide">5 VOICES</p>
-                <p className="text-slate-300 text-xs font-medium mt-0.5">Certified Facilitator</p>
+              <div className="rounded-lg border border-white/10 bg-white/5 p-3 backdrop-blur">
+                <p className="font-extrabold text-[#B64F43] text-xs sm:text-sm tracking-wide">5 VOICES</p>
+                <p className="text-slate-300 text-[0.72rem] mt-0.5">Certified Facilitator</p>
               </div>
-              <div className="rounded-lg border border-white/10 bg-white/5 p-3.5 backdrop-blur">
-                <p className="font-extrabold text-white text-sm tracking-wide">IN THE FIELD</p>
-                <p className="text-slate-300 text-xs font-medium mt-0.5">Priced & Run the Job</p>
+              <div className="rounded-lg border border-white/10 bg-white/5 p-3 backdrop-blur">
+                <p className="font-extrabold text-white text-xs sm:text-sm tracking-wide">IN THE FIELD</p>
+                <p className="text-slate-300 text-[0.72rem] mt-0.5">Priced & Run the Job</p>
               </div>
             </div>
 
+            {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-3">
               <a
-                href="#associations"
+                href={current.ctaPrimaryHref}
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#B64F43] px-6 py-4 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white shadow-xl hover:bg-[#9E3E33] transition-all text-center"
               >
-                <Mic className="size-4" />
-                <span>Book a Keynote Speaker</span>
-                <ArrowRight className="size-4 ml-1" />
-              </a>
-
-              <a
-                href="#contractors"
-                className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-white/30 bg-white/10 px-6 py-4 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white hover:bg-white/20 transition-all backdrop-blur text-center"
-              >
-                <HardHat className="size-4 text-[#B64F43]" />
-                <span>Develop Your Field Leaders</span>
+                <span>{current.ctaPrimary}</span>
+                <ArrowRight className="size-4" />
               </a>
 
               <button
                 type="button"
+                onClick={current.ctaSecondaryAction}
+                className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-white/30 bg-white/10 px-6 py-4 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white hover:bg-white/20 transition-all backdrop-blur text-center"
+              >
+                <span>{current.ctaSecondary}</span>
+              </button>
+
+              <button
+                type="button"
                 onClick={onOpenCalendly}
-                className="inline-flex items-center justify-center gap-1.5 px-4 py-4 text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors"
+                className="inline-flex items-center justify-center gap-1 px-3 py-4 text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors"
               >
                 <span>Talk with Dan</span>
-                <ArrowRight className="size-3.5" />
+                <ChevronRight className="size-4" />
               </button>
             </div>
           </div>
 
-          <div className="lg:col-span-5 flex justify-center lg:justify-end relative">
-            <div className="relative w-full max-w-[390px] sm:max-w-[440px] aspect-[4/5] rounded-2xl overflow-hidden border border-white/15 bg-gradient-to-b from-white/15 via-white/5 to-black/60 shadow-2xl">
+          {/* Right Column: Dan Beatty Cutout (STICKING TO THE BOTTOM) */}
+          <div className="lg:col-span-5 relative flex items-end justify-center lg:justify-end self-end h-full min-h-[460px] sm:min-h-[540px] lg:min-h-[620px]">
+            {/* Ambient Radial Spotlight Behind Dan */}
+            <div className="pointer-events-none absolute bottom-0 inset-x-0 h-4/5 rounded-t-full bg-gradient-to-t from-[#B64F43]/20 via-[#31485A]/30 to-transparent blur-2xl" />
+
+            {/* Dan's Cutout Image - Sticking to Bottom Floor */}
+            <div className="relative z-10 flex items-end justify-center">
               <Image
-                src="https://constructiveleadershipsolutions.com/wp-content/uploads/2026/08/01-Dan-Beatty_Standing.png"
-                alt="Daniel Dan Beatty"
-                fill
+                src="/dan-hero.png"
+                alt="Daniel Dan Beatty - Construction Leadership Speaker & Trainer"
+                width={560}
+                height={700}
                 priority
-                className="object-contain object-bottom scale-105"
+                className="object-contain object-bottom drop-shadow-2xl -mb-px max-h-[500px] sm:max-h-[580px] lg:max-h-[640px] w-auto pointer-events-none"
               />
-              
-              <div className="absolute bottom-4 inset-x-4 rounded-xl border border-white/25 bg-[#0C263D]/95 p-4 backdrop-blur-md shadow-2xl">
-                <p className="text-xs font-serif italic text-slate-100 leading-snug">
-                  "I teach contractors the two things that decide whether a job makes money: how to build the number, and how to lead the people who have to hit it."
+            </div>
+
+            {/* Floating Credential Badge #1 (Top-Left) */}
+            <div className="absolute top-10 -left-4 sm:left-0 z-20 rounded-xl border border-white/20 bg-[#0C263D]/90 p-3 shadow-2xl backdrop-blur-md hidden sm:flex items-center gap-3">
+              <div className="flex size-9 items-center justify-center rounded-lg bg-[#B64F43] text-white">
+                <Award className="size-5" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-white leading-tight">Approved AGC Edge Instructor</p>
+                <p className="text-[0.68rem] text-slate-300">National Construction Authority</p>
+              </div>
+            </div>
+
+            {/* Floating Credential Badge #2 (Bottom-Left Callout) */}
+            <div className="absolute bottom-6 left-2 right-2 sm:left-4 sm:right-auto sm:max-w-xs z-20 rounded-xl border border-white/25 bg-[#0C263D]/95 p-3.5 shadow-2xl backdrop-blur-md">
+              <p className="text-[0.78rem] font-serif italic text-slate-100 leading-snug">
+                "I teach contractors how to build the number, and how to lead the people who have to hit it."
+              </p>
+              <div className="mt-2 flex items-center justify-between border-t border-white/10 pt-1.5">
+                <p className="text-[0.68rem] font-extrabold uppercase tracking-wider text-[#B64F43]">
+                  — Dan Beatty
                 </p>
-                <div className="mt-2 flex items-center justify-between">
-                  <p className="text-[0.7rem] font-extrabold uppercase tracking-wider text-[#B64F43]">
-                    — Dan Beatty
-                  </p>
-                  <span className="text-[0.65rem] text-slate-300 font-semibold">AGC Edge Instructor</span>
-                </div>
+                <span className="text-[0.65rem] text-slate-300 font-semibold">Since 1984</span>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="mt-16 pt-10 border-t border-white/10">
-          <p className="text-center text-xs font-extrabold uppercase tracking-[0.25em] text-slate-400 mb-6">
-            Trusted by Leading Construction Associations & Industry Organizations
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-12 opacity-80 text-xs sm:text-sm font-bold text-slate-300 uppercase tracking-wider">
-            <span className="rounded bg-white/10 px-4 py-2 border border-white/10">Associated General Contractors of America (AGC)</span>
-            <span className="rounded bg-white/10 px-4 py-2 border border-white/10">AGC Edge Educational Programs</span>
-            <span className="rounded bg-white/10 px-4 py-2 border border-white/10">Carolinas AGC</span>
-            <span className="rounded bg-white/10 px-4 py-2 border border-white/10">Virginia Transportation Construction Alliance</span>
-            <span className="rounded bg-white/10 px-4 py-2 border border-white/10">GiANT 5 Voices Global Network</span>
+      {/* Association Credibility Bar */}
+      <div className="border-t border-white/10 bg-[#081B2C] py-5">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-slate-400">
+              Trusted by Leading Construction Associations:
+            </span>
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs font-bold text-slate-300">
+              <span className="rounded bg-white/5 px-3 py-1.5 border border-white/10">Associated General Contractors of America</span>
+              <span className="rounded bg-white/5 px-3 py-1.5 border border-white/10">AGC Edge</span>
+              <span className="rounded bg-white/5 px-3 py-1.5 border border-white/10">Carolinas AGC</span>
+              <span className="rounded bg-white/5 px-3 py-1.5 border border-white/10">VTCA</span>
+              <span className="rounded bg-white/5 px-3 py-1.5 border border-white/10">GiANT 5 Voices</span>
+            </div>
           </div>
         </div>
       </div>
