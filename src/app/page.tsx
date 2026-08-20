@@ -4,20 +4,20 @@ import { useState } from "react";
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { BuyerRouting } from "@/components/buyer-routing";
-import { SpeakerKit } from "@/components/speaker-kit";
-import { TrainingPrograms } from "@/components/training-programs";
 import { CohortProgram } from "@/components/cohort-program";
 import { PodcastsMedia } from "@/components/podcasts-media";
+import { SpeakerKit } from "@/components/speaker-kit";
+import { TrainingPrograms } from "@/components/training-programs";
 import { TheFriction } from "@/components/the-friction";
 import { AboutDan } from "@/components/about-dan";
 import { LeadCapture } from "@/components/lead-capture";
 import { Testimonials } from "@/components/testimonials";
 import { Footer } from "@/components/footer";
-
 import { CalendlyModal } from "@/components/modals/calendly-modal";
 import { SpeakerKitModal } from "@/components/modals/speaker-kit-modal";
 import { DiagnosticModal } from "@/components/modals/diagnostic-modal";
 import { CohortApplyModal } from "@/components/modals/cohort-apply-modal";
+import { FloatingWebinarWidget } from "@/components/floating-webinar-widget";
 
 export default function HomePage() {
   const [calendlyOpen, setCalendlyOpen] = useState(false);
@@ -26,39 +26,39 @@ export default function HomePage() {
   const [cohortApplyOpen, setCohortApplyOpen] = useState(false);
 
   return (
-    <main className="min-h-screen flex flex-col bg-white">
-      {/* 1. Sticky Navigation & Prominent Credential Bar */}
+    <main className="min-h-screen bg-white text-slate-900 selection:bg-[#B64F43] selection:text-white font-sans antialiased">
+      {/* 1. Header with Direct AGC Edge Credential */}
       <Header
         onOpenCalendly={() => setCalendlyOpen(true)}
         onOpenSpeakerKit={() => setSpeakerKitOpen(true)}
       />
 
-      {/* 2. Clean, Dominant Hero Section with Floor-Anchored Dan Cutout */}
+      {/* 2. Hero Section (Floor-Anchored Dan Cutout + Primary Direct Actions) */}
       <Hero
         onOpenCalendly={() => setCalendlyOpen(true)}
         onOpenSpeakerKit={() => setSpeakerKitOpen(true)}
         onOpenDiagnostic={() => setDiagnosticOpen(true)}
       />
 
-      {/* 3. Dedicated Interactive Question & Persona Selector (LOWER ON PAGE) */}
+      {/* 3. Interactive Buyer Persona Question & Dynamic Content Matcher */}
       <BuyerRouting
         onOpenCalendly={() => setCalendlyOpen(true)}
         onOpenSpeakerKit={() => setSpeakerKitOpen(true)}
         onOpenCohortApply={() => setCohortApplyOpen(true)}
       />
 
-      {/* 4. Speaker Kit & Live Stage Footage (Vimeo + 4 Keynote Topics + Committee Email) */}
+      {/* 4. Speaker Kit & Keynotes (Vimeo Reel 1218014604 + 4 Topics + 1-Click Committee Email) */}
       <SpeakerKit
         onOpenCalendly={() => setCalendlyOpen(true)}
         onOpenSpeakerKit={() => setSpeakerKitOpen(true)}
       />
 
-      {/* 5. Contractor Training Programs (Interactive Curriculum Tabs) */}
+      {/* 5. Contractor Training Programs (PMDP, Builder to Leader, Estimating with Impact, 5 Voices) */}
       <TrainingPrograms
         onOpenCalendly={() => setCalendlyOpen(true)}
       />
 
-      {/* 6. Scalable Construction Leadership Cohort & Academy */}
+      {/* 6. Multi-Company Cohort Academy (Scalable 8-Week Hybrid Program) */}
       <CohortProgram
         onOpenCalendly={() => setCalendlyOpen(true)}
         onOpenCohortApply={() => setCohortApplyOpen(true)}
@@ -69,10 +69,10 @@ export default function HomePage() {
         onOpenCalendly={() => setCalendlyOpen(true)}
       />
 
-      {/* 8. The Friction Matrix & Interactive Margin Risk Calculator */}
+      {/* 8. The Friction & Industry Reality (Comparison Matrix + Margin Risk Calculator) */}
       <TheFriction />
 
-      {/* 9. About Dan Beatty (In-The-Trenches 1984 Credibility) */}
+      {/* 9. About Dan Beatty (1984 Authority Story + Enterprise Pedigree) */}
       <AboutDan
         onOpenCalendly={() => setCalendlyOpen(true)}
       />
@@ -91,17 +91,10 @@ export default function HomePage() {
         onOpenSpeakerKit={() => setSpeakerKitOpen(true)}
       />
 
-      {/* Floating Quick Action Widget (Bottom-Left) */}
-      <div className="fixed bottom-5 left-5 z-40 hidden sm:flex flex-col gap-2">
-        <button
-          type="button"
-          onClick={() => setDiagnosticOpen(true)}
-          className="flex items-center gap-2 rounded-full border border-[#B64F43] bg-white px-4 py-2.5 text-xs font-extrabold uppercase tracking-wider text-[#0C263D] shadow-2xl hover:bg-slate-50 transition-all cursor-pointer ring-1 ring-black/10"
-        >
-          <span className="flex size-2 rounded-full bg-[#B64F43] animate-ping" />
-          <span>🎯 Free Leadership Diagnostic</span>
-        </button>
-      </div>
+      {/* 13. High-Converting Floating Popup Widget */}
+      <FloatingWebinarWidget
+        onOpenDiagnostic={() => setDiagnosticOpen(true)}
+      />
 
       {/* Interactive Modals */}
       <CalendlyModal

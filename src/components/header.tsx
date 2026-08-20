@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Menu, X, ArrowRight, Phone, Download, Calendar, ExternalLink, ShieldCheck, Mail } from "lucide-react";
+import { Menu, X, ArrowRight, Phone, Download, Calendar, ExternalLink, ShieldCheck, Mail, Award } from "lucide-react";
 
 interface HeaderProps {
   onOpenCalendly: () => void;
@@ -27,7 +27,7 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
       {/* 1. UPPER ROW: Prominent Logo + Verified Credential Pill + Direct Contact */}
       <div className="bg-[#0C263D] text-white px-4 py-2.5 sm:py-3 border-b border-slate-800">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
-          {/* Logo in Upper Part (Clean, Natural Colors, Zero Filter) */}
+          {/* Logo in Upper Part */}
           <a href="#overview" className="flex items-center gap-3 group shrink-0">
             <div className="relative h-10 w-48 sm:h-11 sm:w-56">
               <Image
@@ -40,7 +40,7 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
             </div>
           </a>
 
-          {/* Center Credentials */}
+          {/* Center Credentials (Clean icons, ZERO flashing dot circles) */}
           <div className="hidden md:flex items-center gap-4 text-xs sm:text-[0.82rem] text-slate-300">
             <a
               href={agcLink}
@@ -48,7 +48,7 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-[#B64F43] px-3.5 py-1 text-white font-bold tracking-wide transition-all border border-white/20 hover:border-transparent group cursor-pointer"
             >
-              <span className="size-2 rounded-full bg-[#B64F43] group-hover:bg-white animate-pulse" />
+              <Award className="size-3.5 text-[#B64F43] group-hover:text-white" />
               <span>Approved AGC Edge Instructor</span>
               <ExternalLink className="size-3 text-slate-300 group-hover:text-white" />
             </a>
