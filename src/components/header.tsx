@@ -14,7 +14,6 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
 
   const agcLink = "https://pmc.agc.org/speakers/#:~:text=Hohns%20%E2%80%A2%20Inglis%2C%20Inc.-,Dan%20Beatty,-Constructive%20Leadership%20Solutions";
 
-  // Clean, Standard 5 Navigation Anchors (Speaking, Training, Cohort, Podcasts, About)
   const navLinks = [
     { label: "Speaking", href: "#speaker-reel" },
     { label: "Training", href: "#training-programs" },
@@ -28,15 +27,15 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
       {/* 1. UPPER ROW: Prominent Logo + Verified Credential Pill + Direct Contact */}
       <div className="bg-[#0C263D] text-white px-4 py-2.5 sm:py-3 border-b border-slate-800">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
-          {/* Logo in Upper Part */}
+          {/* Logo in Upper Part (Clean, Natural Colors, Zero Filter) */}
           <a href="#overview" className="flex items-center gap-3 group shrink-0">
-            <div className="relative h-10 w-44 sm:h-11 sm:w-52">
+            <div className="relative h-10 w-48 sm:h-11 sm:w-56">
               <Image
-                src="https://constructiveleadershipsolutions.com/wp-content/uploads/2025/04/Constructive-Leadership-Solutions-Dark-Logo-March-2025-e1744120204726.png"
+                src="/logo.png"
                 alt="Constructive Leadership Solutions"
                 fill
                 priority
-                className="object-contain object-left brightness-0 invert"
+                className="object-contain object-left"
               />
             </div>
           </a>
