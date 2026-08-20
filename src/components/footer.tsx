@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Phone, Mail, Calendar, Download, MapPin, ArrowRight } from "lucide-react";
+import { Phone, Mail, Calendar, Download, MapPin, ArrowRight, ExternalLink } from "lucide-react";
 
 interface FooterProps {
   onOpenCalendly: () => void;
@@ -9,6 +9,8 @@ interface FooterProps {
 }
 
 export function Footer({ onOpenCalendly, onOpenSpeakerKit }: FooterProps) {
+  const agcLink = "https://pmc.agc.org/speakers/#:~:text=Hohns%20%E2%80%A2%20Inglis%2C%20Inc.-,Dan%20Beatty,-Constructive%20Leadership%20Solutions";
+
   return (
     <footer className="border-t border-slate-800 bg-[#0C263D] text-white">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
@@ -68,6 +70,12 @@ export function Footer({ onOpenCalendly, onOpenSpeakerKit }: FooterProps) {
                 <a href="#training-programs" className="hover:text-white transition-colors">Training Programs</a>
               </li>
               <li>
+                <a href="#cohort-program" className="hover:text-white transition-colors">Cohort Academy</a>
+              </li>
+              <li>
+                <a href="#podcasts" className="hover:text-white transition-colors">Podcasts & Media</a>
+              </li>
+              <li>
                 <a href="#friction" className="hover:text-white transition-colors">The Friction Matrix</a>
               </li>
               <li>
@@ -82,10 +90,20 @@ export function Footer({ onOpenCalendly, onOpenSpeakerKit }: FooterProps) {
           {/* Column 3: Credentials & Socials */}
           <div>
             <p className="text-xs font-black uppercase tracking-[0.2em] text-[#B64F43]">
-              Accreditations & Social
+              Accreditations & Profiles
             </p>
             <ul className="mt-4 space-y-2.5 text-xs text-slate-300">
-              <li>• Approved AGC Edge Instructor</li>
+              <li>
+                <a
+                  href={agcLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors inline-flex items-center gap-1.5 text-slate-200"
+                >
+                  <span>• Approved AGC Edge Instructor</span>
+                  <ExternalLink className="size-3 text-[#B64F43]" />
+                </a>
+              </li>
               <li>• Certified 5 Voices Facilitator (GiANT)</li>
               <li>• Certified Values Identifier Coach</li>
               <li>• Construction Veteran Since 1984</li>

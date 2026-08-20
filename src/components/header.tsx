@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Menu, X, ArrowRight, Phone, Download, Calendar, HardHat } from "lucide-react";
+import { Menu, X, ArrowRight, Phone, Download, Calendar, HardHat, ExternalLink, ShieldCheck } from "lucide-react";
 
 interface HeaderProps {
   onOpenCalendly: () => void;
@@ -25,33 +25,44 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
     { label: "Newsletter", href: "#newsletter" },
   ];
 
+  const agcLink = "https://pmc.agc.org/speakers/#:~:text=Hohns%20%E2%80%A2%20Inglis%2C%20Inc.-,Dan%20Beatty,-Constructive%20Leadership%20Solutions";
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur-md transition-all shadow-sm">
-      {/* Top Notification Bar */}
-      <div className="hidden border-b border-slate-800 bg-[#0C263D] px-4 py-2 text-xs text-slate-300 md:block">
+      {/* Top Notification / Credential Bar (Spacious & Prominent) */}
+      <div className="hidden border-b border-slate-800 bg-[#0C263D] px-4 py-2.5 sm:py-3 text-xs sm:text-[0.84rem] text-slate-200 md:block">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
-          <div className="flex items-center gap-5">
-            <span className="flex items-center gap-2">
-              <span className="size-2 rounded-full bg-[#B64F43] animate-pulse" />
-              <strong className="text-white font-bold tracking-wide">Approved AGC Edge Instructor</strong>
-            </span>
+          <div className="flex items-center gap-4 sm:gap-6">
+            {/* Clickable Verified AGC Credential Pill */}
+            <a
+              href={agcLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-[#B64F43] px-3.5 py-1 text-white font-bold tracking-wide transition-all border border-white/20 hover:border-transparent group cursor-pointer"
+            >
+              <span className="size-2 rounded-full bg-[#B64F43] group-hover:bg-white animate-pulse" />
+              <span>Approved AGC Edge Instructor</span>
+              <ExternalLink className="size-3 text-slate-300 group-hover:text-white" />
+            </a>
+
             <span className="text-slate-500">|</span>
-            <span className="text-slate-200">Construction Veteran Since 1984</span>
+            <span className="text-slate-200 font-medium">Construction Veteran Since 1984</span>
             <span className="text-slate-500">|</span>
-            <span className="text-slate-200">Certified 5 Voices Facilitator</span>
+            <span className="text-slate-200 font-medium">Certified 5 Voices Facilitator</span>
           </div>
-          <div className="flex items-center gap-5">
+
+          <div className="flex items-center gap-5 sm:gap-6">
             <a
               href="tel:7033807923"
-              className="flex items-center gap-1.5 font-bold text-white hover:text-[#B64F43] transition-colors"
+              className="flex items-center gap-2 font-bold text-white hover:text-[#B64F43] transition-colors"
             >
-              <Phone className="size-3 text-[#B64F43]" />
+              <Phone className="size-3.5 text-[#B64F43]" />
               <span>(703) 380-7923</span>
             </a>
             <span className="text-slate-600">|</span>
             <a
               href="mailto:dan@constructiveleadershipsolutions.com"
-              className="text-slate-300 hover:text-white transition-colors"
+              className="text-slate-300 hover:text-white transition-colors font-medium"
             >
               dan@constructiveleadershipsolutions.com
             </a>
@@ -133,6 +144,17 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
               </a>
             ))}
             <div className="mt-4 pt-4 border-t border-slate-100 flex flex-col gap-2.5">
+              <a
+                href={agcLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 rounded-lg bg-slate-100 py-2.5 text-xs font-bold text-[#0C263D]"
+              >
+                <ShieldCheck className="size-4 text-[#B64F43]" />
+                <span>Verified AGC Edge Instructor Profile</span>
+                <ExternalLink className="size-3 text-slate-500" />
+              </a>
+
               <button
                 type="button"
                 onClick={() => {

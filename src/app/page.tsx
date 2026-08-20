@@ -27,23 +27,24 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen flex flex-col bg-white">
-      {/* 1. Sticky Navigation & Credential Bar */}
+      {/* 1. Sticky Navigation & Prominent Credential Bar */}
       <Header
         onOpenCalendly={() => setCalendlyOpen(true)}
         onOpenSpeakerKit={() => setSpeakerKitOpen(true)}
       />
 
-      {/* 2. Hero Section (Dan Standing Cutout Sticking to Floor + 3-Persona Switcher) */}
+      {/* 2. Clean, Dominant Hero Section with Floor-Anchored Dan Cutout */}
       <Hero
         onOpenCalendly={() => setCalendlyOpen(true)}
         onOpenSpeakerKit={() => setSpeakerKitOpen(true)}
         onOpenDiagnostic={() => setDiagnosticOpen(true)}
       />
 
-      {/* 3. Dual Buyer Objective Routing */}
+      {/* 3. Dedicated Interactive Question & Persona Selector (LOWER ON PAGE) */}
       <BuyerRouting
         onOpenCalendly={() => setCalendlyOpen(true)}
         onOpenSpeakerKit={() => setSpeakerKitOpen(true)}
+        onOpenCohortApply={() => setCohortApplyOpen(true)}
       />
 
       {/* 4. Speaker Kit & Live Stage Footage (Vimeo + 4 Keynote Topics + Committee Email) */}
