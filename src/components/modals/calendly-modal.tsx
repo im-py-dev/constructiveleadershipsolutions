@@ -9,7 +9,16 @@ interface CalendlyModalProps {
 }
 
 export function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
+  // Default duration is 30min as requested
+  const [duration, setDuration] = useState<"15" | "30" | "60">("30");
   const [iframeLoaded, setIframeLoaded] = useState(false);
+
+  // Calendly URLs for each duration
+  const calendlyUrls = {
+    "15": "https://calendly.com/dan-danbeatty/15min?hide_gdpr_banner=1&primary_color=b64f43",
+    "30": "https://calendly.com/dan-danbeatty/30min?hide_gdpr_banner=1&primary_color=b64f43",
+    "60": "https://calendly.com/dan-danbeatty/60min?hide_gdpr_banner=1&primary_color=b64f43",
+  };
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -25,65 +34,119 @@ export function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
     };
   }, [isOpen, onClose]);
 
+  const handleDurationChange = (newDuration: "15" | "30" | "60") => {
+    if (newDuration !== duration) {
+      setIframeLoaded(false);
+      setDuration(newDuration);
+    }
+  };
+
   return (
     <div
       className={
-        "fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-8 bg-black/75 backdrop-blur-sm transition-opacity duration-200 " +
+        "fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8 bg-black/75 backdrop-blur-sm transition-opacity duration-200 " +
         (isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none")
       }
       aria-hidden={!isOpen}
     >
       <div
         className={
-          "relative w-full max-w-4xl h-[90vh] max-h-[820px] rounded-2xl bg-white shadow-2xl overflow-hidden flex flex-col border border-slate-200 transition-all duration-200 " +
+          "relative w-full max-w-4xl h-[92vh] max-h-[840px] rounded-2xl bg-white shadow-2xl overflow-hidden flex flex-col border border-slate-200 transition-all duration-200 " +
           (isOpen ? "scale-100 translate-y-0" : "scale-95 translate-y-4")
         }
       >
-        {/* Modal Header */}
-        <div className="flex items-center justify-between border-b border-slate-200 bg-[#0C263D] px-6 py-4 text-white">
+        {/* Modal Header with Title & Duration Switcher Controls */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between border-b border-slate-200 bg-[#0C263D] px-4 py-3 sm:px-6 sm:py-4 text-white gap-3">
           <div className="flex items-center gap-3">
-            <div className="flex size-9 items-center justify-center rounded bg-[#B64F43] text-white">
+            <div className="flex size-9 items-center justify-center rounded-xl bg-[#B64F43] text-white shrink-0 shadow-sm">
               <Calendar className="size-5" />
             </div>
             <div>
-              <h3 className="font-bold text-sm sm:text-base text-white">
-                Schedule a Conversation with Dan Beatty
+              <h3 className="font-bold text-sm sm:text-base text-white leading-tight">
+                Schedule Discovery with Dan Beatty
               </h3>
-              <p className="text-xs text-slate-300">
-                Direct Discovery Call · 20-30 Minutes · Zero Obligation
+              <p className="text-[0.72rem] sm:text-xs text-slate-300">
+                {duration === "15" && "15-Min Quick Intro · Zero Obligation"}
+                {duration === "30" && "30-Min Discovery & Roadmap · Default"}
+                {duration === "60" && "60-Min Strategy Deep Dive & Review"}
               </p>
             </div>
           </div>
 
-          <button
-            type="button"
-            aria-label="Close modal"
-            onClick={onClose}
-            className="rounded-full p-2 text-slate-300 hover:bg-white/10 hover:text-white transition-colors cursor-pointer"
-          >
-            <X className="size-5" />
-          </button>
+          {/* Right Controls: Duration Switcher Buttons + Close Button */}
+          <div className="flex items-center justify-between sm:justify-end gap-2 shrink-0">
+            {/* Duration Selector Tabs */}
+            <div className="inline-flex items-center rounded-lg bg-black/40 p-1 border border-white/15">
+              <button
+                type="button"
+                onClick={() => handleDurationChange("15")}
+                className={
+                  "rounded-md px-2.5 py-1 text-xs font-extrabold uppercase tracking-wider transition-all cursor-pointer " +
+                  (duration === "15"
+                    ? "bg-[#B64F43] text-white shadow"
+                    : "text-slate-300 hover:text-white hover:bg-white/10")
+                }
+              >
+                15 min
+              </button>
+              <button
+                type="button"
+                onClick={() => handleDurationChange("30")}
+                className={
+                  "rounded-md px-2.5 py-1 text-xs font-extrabold uppercase tracking-wider transition-all cursor-pointer " +
+                  (duration === "30"
+                    ? "bg-[#B64F43] text-white shadow"
+                    : "text-slate-300 hover:text-white hover:bg-white/10")
+                }
+              >
+                30 min
+              </button>
+              <button
+                type="button"
+                onClick={() => handleDurationChange("60")}
+                className={
+                  "rounded-md px-2.5 py-1 text-xs font-extrabold uppercase tracking-wider transition-all cursor-pointer " +
+                  (duration === "60"
+                    ? "bg-[#B64F43] text-white shadow"
+                    : "text-slate-300 hover:text-white hover:bg-white/10")
+                }
+              >
+                60 min
+              </button>
+            </div>
+
+            {/* Close Button */}
+            <button
+              type="button"
+              aria-label="Close modal"
+              onClick={onClose}
+              className="rounded-full p-2 text-slate-300 hover:bg-white/10 hover:text-white transition-colors cursor-pointer"
+            >
+              <X className="size-5" />
+            </button>
+          </div>
         </div>
 
-        {/* Embedded Calendly iframe (Always Preloaded in DOM for 0ms delay) */}
+        {/* Embedded Calendly iframe */}
         <div className="flex-1 w-full bg-slate-50 relative">
           {!iframeLoaded && (
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-slate-50 text-slate-500 z-10">
               <Loader2 className="size-8 animate-spin text-[#B64F43]" />
-              <p className="text-xs font-bold uppercase tracking-wider">Connecting to Dan's Calendar...</p>
+              <p className="text-xs font-bold uppercase tracking-wider">Loading {duration}-Minute Calendar Slots...</p>
             </div>
           )}
 
           <iframe
-            src="https://calendly.com/dan-danbeatty?hide_gdpr_banner=1&primary_color=b64f43"
-            title="Book a Conversation with Dan Beatty"
+            key={duration}
+            src={calendlyUrls[duration]}
+            title={"Book a " + duration + "-Minute Conversation with Dan Beatty"}
             onLoad={() => setIframeLoaded(true)}
             className="size-full border-0"
           />
         </div>
 
         {/* Modal Footer with Direct Contact */}
-        <div className="border-t border-slate-200 bg-white px-6 py-3 text-xs text-slate-600 flex flex-wrap items-center justify-between gap-4">
+        <div className="border-t border-slate-200 bg-white px-4 sm:px-6 py-2.5 sm:py-3 text-xs text-slate-600 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5">
               <Phone className="size-3.5 text-[#B64F43]" />
@@ -95,7 +158,7 @@ export function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
               <span>dan@constructiveleadershipsolutions.com</span>
             </span>
           </div>
-          <p className="text-slate-400 text-[0.7rem]">
+          <p className="text-slate-400 text-[0.7rem] hidden sm:block">
             Prefer direct email? Send details about your event or team gap.
           </p>
         </div>
