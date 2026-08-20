@@ -14,11 +14,12 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
 
   const agcLink = "https://pmc.agc.org/speakers/#:~:text=Hohns%20%E2%80%A2%20Inglis%2C%20Inc.-,Dan%20Beatty,-Constructive%20Leadership%20Solutions";
 
+  // Clean, Standard 5 Navigation Anchors (Speaking, Training, Cohort, Podcasts, About)
   const navLinks = [
-    { label: "Speaking & Reel", href: "#speaker-reel" },
-    { label: "Contractor Training", href: "#training-programs" },
+    { label: "Speaking", href: "#speaker-reel" },
+    { label: "Training", href: "#training-programs" },
     { label: "Cohort Academy", href: "#cohort-program" },
-    { label: "Podcasts & Media", href: "#podcasts" },
+    { label: "Podcasts", href: "#podcasts" },
     { label: "About Dan", href: "#about" },
   ];
 
@@ -40,7 +41,7 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
             </div>
           </a>
 
-          {/* Center Credentials (Hidden on small mobile) */}
+          {/* Center Credentials */}
           <div className="hidden md:flex items-center gap-4 text-xs sm:text-[0.82rem] text-slate-300">
             <a
               href={agcLink}
@@ -81,13 +82,12 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
 
       {/* 2. LOWER ROW: Clean Navigation Links + Action CTAs */}
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2.5 sm:px-6 lg:px-8">
-        {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-1 text-[0.86rem] font-bold text-[#31485A]">
+        <nav className="hidden lg:flex items-center gap-1 text-[0.88rem] font-bold text-[#31485A]">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="rounded-lg px-3.5 py-2 text-slate-700 hover:bg-slate-100 hover:text-[#0C263D] transition-colors"
+              className="rounded-lg px-4 py-2 text-slate-700 hover:bg-slate-100 hover:text-[#0C263D] transition-colors"
             >
               {link.label}
             </a>
