@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, Award, ChevronRight, Sparkles, ExternalLink, Calendar, Download } from "lucide-react";
+import { ArrowRight, Award, Sparkles, ExternalLink, Calendar, Download } from "lucide-react";
 
 interface HeroProps {
   onOpenCalendly: () => void;
@@ -96,12 +96,10 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
             </div>
           </div>
 
-          {/* Right Column: Dan Beatty Cutout (BIGGER, DOMINANT & ANCHORED TO BOTTOM FLOOR) */}
+          {/* Right Column: Dan Beatty Cutout */}
           <div className="lg:col-span-6 relative flex items-end justify-center lg:justify-end self-end h-full min-h-[580px] sm:min-h-[720px] lg:min-h-[820px] xl:min-h-[900px] overflow-visible">
-            {/* Ambient Radial Spotlight Behind Dan */}
             <div className="pointer-events-none absolute bottom-0 inset-x-0 h-full rounded-t-full bg-gradient-to-t from-[#B64F43]/30 via-[#31485A]/40 to-transparent blur-3xl" />
 
-            {/* Dan's Cutout Image - Large & Authoritative */}
             <div className="relative z-10 flex items-end justify-center w-full">
               <Image
                 src="/dan-hero.png"
@@ -113,7 +111,7 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
               />
             </div>
 
-            {/* Floating AGC Badge (Top Left of Dan's Head) */}
+            {/* Floating AGC Badge */}
             <a
               href={agcLink}
               target="_blank"
@@ -132,7 +130,7 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
               </div>
             </a>
 
-            {/* Floating Quote Badge (Bottom Left of Dan's Waist) */}
+            {/* Floating Quote Badge */}
             <div className="absolute bottom-6 -left-6 sm:-left-12 max-w-xs z-20 rounded-xl border border-white/25 bg-[#0C263D]/95 p-3.5 shadow-2xl backdrop-blur-md hidden md:block">
               <p className="text-[0.78rem] font-serif italic text-slate-100 leading-snug">
                 "I teach contractors how to build the number, and how to lead the people who have to hit it."
@@ -148,35 +146,41 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
         </div>
       </div>
 
-      {/* Association Credibility Bar */}
-      <div className="border-t border-white/10 bg-[#081B2C] py-5 relative z-20">
+      {/* Association Credibility Bar (Single Balanced Row, Zero Wrapping Orphans) */}
+      <div className="border-t border-white/10 bg-[#081B2C] py-3.5 sm:py-4 relative z-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-slate-400">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-2.5 sm:gap-4">
+            <span className="text-[0.72rem] sm:text-xs font-extrabold uppercase tracking-[0.18em] text-slate-400 shrink-0 text-center lg:text-left">
               Trusted by Leading Construction Associations:
             </span>
-            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs font-bold text-slate-300">
+            <div className="flex flex-wrap lg:flex-nowrap items-center justify-center gap-2 sm:gap-2.5 text-[0.76rem] sm:text-xs font-bold text-slate-300">
               <a
                 href={agcLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded bg-white/5 px-3 py-1.5 border border-white/10 hover:border-[#B64F43] hover:text-white transition-colors inline-flex items-center gap-1.5"
+                className="rounded-md bg-white/5 px-2.5 py-1 border border-white/10 hover:border-[#B64F43] hover:text-white transition-colors inline-flex items-center gap-1 shrink-0 whitespace-nowrap"
               >
-                <span>Associated General Contractors of America (AGC)</span>
+                <span>AGC of America</span>
                 <ExternalLink className="size-3 text-slate-400" />
               </a>
               <a
                 href={agcLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded bg-white/5 px-3 py-1.5 border border-white/10 hover:border-[#B64F43] hover:text-white transition-colors inline-flex items-center gap-1.5"
+                className="rounded-md bg-white/5 px-2.5 py-1 border border-white/10 hover:border-[#B64F43] hover:text-white transition-colors inline-flex items-center gap-1 shrink-0 whitespace-nowrap"
               >
                 <span>AGC Edge</span>
                 <ExternalLink className="size-3 text-slate-400" />
               </a>
-              <span className="rounded bg-white/5 px-3 py-1.5 border border-white/10">Carolinas AGC</span>
-              <span className="rounded bg-white/5 px-3 py-1.5 border border-white/10">VTCA</span>
-              <span className="rounded bg-white/5 px-3 py-1.5 border border-white/10">GiANT 5 Voices</span>
+              <span className="rounded-md bg-white/5 px-2.5 py-1 border border-white/10 shrink-0 whitespace-nowrap">
+                Carolinas AGC
+              </span>
+              <span className="rounded-md bg-white/5 px-2.5 py-1 border border-white/10 shrink-0 whitespace-nowrap">
+                VTCA
+              </span>
+              <span className="rounded-md bg-white/5 px-2.5 py-1 border border-white/10 shrink-0 whitespace-nowrap">
+                GiANT 5 Voices
+              </span>
             </div>
           </div>
         </div>
