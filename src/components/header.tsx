@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Menu, X, ArrowRight, Phone, Download, Calendar, ExternalLink, ShieldCheck, Mail, Award } from "lucide-react";
+import { Menu, X, ArrowRight, Phone, Download, Calendar, ExternalLink, Mail, Award, Sparkles } from "lucide-react";
 
 interface HeaderProps {
   onOpenCalendly: () => void;
@@ -24,12 +24,12 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white shadow-sm transition-all">
-      {/* 1. UPPER ROW: Prominent Logo + Verified Credential Pill + Direct Contact */}
-      <div className="bg-[#0C263D] text-white px-4 py-2.5 sm:py-3 border-b border-slate-800">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
-          {/* Logo in Upper Part */}
-          <a href="#overview" className="flex items-center gap-3 group shrink-0">
-            <div className="relative h-10 w-48 sm:h-11 sm:w-56">
+      {/* 1. UPPER ROW: Logo + Direct Contact */}
+      <div className="bg-[#0C263D] text-white px-3 sm:px-6 py-2 sm:py-2.5 border-b border-slate-800">
+        <div className="mx-auto flex max-w-[1720px] items-center justify-between gap-3">
+          {/* Logo */}
+          <a href="#overview" className="flex items-center gap-2 group shrink-0">
+            <div className="relative h-8 w-40 sm:h-10 sm:w-52">
               <Image
                 src="/logo.png"
                 alt="Constructive Leadership Solutions"
@@ -40,13 +40,13 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
             </div>
           </a>
 
-          {/* Center Credentials (Clean icons, ZERO flashing dot circles) */}
-          <div className="hidden md:flex items-center gap-4 text-xs sm:text-[0.82rem] text-slate-300">
+          {/* Desktop Center Credentials */}
+          <div className="hidden md:flex items-center gap-3.5 text-xs text-slate-300">
             <a
               href={agcLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-[#B64F43] px-3.5 py-1 text-white font-bold tracking-wide transition-all border border-white/20 hover:border-transparent group cursor-pointer"
+              className="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-[#B64F43] px-3 py-1 text-white font-bold tracking-wide transition-all border border-white/20 hover:border-transparent group cursor-pointer"
             >
               <Award className="size-3.5 text-[#B64F43] group-hover:text-white" />
               <span>Approved AGC Edge Instructor</span>
@@ -58,19 +58,19 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
             <span>5 Voices Facilitator</span>
           </div>
 
-          {/* Right Direct Contacts */}
-          <div className="flex items-center gap-4 text-xs sm:text-sm font-semibold">
+          {/* Right Direct Phone & Email */}
+          <div className="flex items-center gap-3 text-xs sm:text-sm font-semibold">
             <a
               href="tel:7033807923"
-              className="flex items-center gap-1.5 text-white hover:text-[#B64F43] transition-colors"
+              className="flex items-center gap-1.5 text-white hover:text-[#B64F43] transition-colors whitespace-nowrap"
             >
               <Phone className="size-3.5 text-[#B64F43]" />
               <span>(703) 380-7923</span>
             </a>
-            <span className="hidden sm:inline text-slate-600">|</span>
+            <span className="hidden lg:inline text-slate-600">|</span>
             <a
               href="mailto:dan@constructiveleadershipsolutions.com"
-              className="hidden sm:flex items-center gap-1.5 text-slate-300 hover:text-white transition-colors"
+              className="hidden lg:flex items-center gap-1.5 text-slate-300 hover:text-white transition-colors"
             >
               <Mail className="size-3.5 text-slate-400" />
               <span>dan@constructiveleadershipsolutions.com</span>
@@ -79,66 +79,69 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
         </div>
       </div>
 
-      {/* 2. LOWER ROW: Clean Navigation Links + Action CTAs */}
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2.5 sm:px-6 lg:px-8">
+      {/* 2. LOWER ROW: Clean Navigation Links + Responsive Compact CTAs */}
+      <div className="mx-auto flex max-w-[1720px] items-center justify-between px-3 py-2 sm:px-6 sm:py-2.5">
+        {/* Desktop Nav Links */}
         <nav className="hidden lg:flex items-center gap-1 text-[0.88rem] font-bold text-[#31485A]">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="rounded-lg px-4 py-2 text-slate-700 hover:bg-slate-100 hover:text-[#0C263D] transition-colors"
+              className="rounded-lg px-3.5 py-1.5 text-slate-700 hover:bg-slate-100 hover:text-[#0C263D] transition-colors"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        <span className="text-xs font-extrabold uppercase tracking-wider text-slate-400 lg:hidden">
-          Navigation
-        </span>
+        {/* Mobile Left Quick Pill */}
+        <div className="flex items-center gap-1.5 lg:hidden">
+          <span className="rounded-full bg-[#B64F43]/10 border border-[#B64F43]/20 px-2 py-0.5 text-[0.68rem] font-extrabold uppercase tracking-wider text-[#B64F43]">
+            Keynotes & Training
+          </span>
+        </div>
 
-        {/* Action Buttons */}
-        <div className="flex items-center gap-2.5 sm:gap-3">
+        {/* Action Buttons (Strictly sized for mobile screens with zero clipping) */}
+        <div className="flex items-center gap-1.5 sm:gap-2.5">
           <button
             type="button"
             onClick={onOpenSpeakerKit}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-xs font-extrabold uppercase tracking-wider text-[#0C263D] hover:bg-slate-50 hover:border-slate-400 transition-all shadow-sm cursor-pointer"
+            className="inline-flex items-center gap-1 rounded-lg border border-slate-300 bg-white px-2.5 py-1.5 sm:px-3.5 sm:py-2 text-[0.7rem] sm:text-xs font-extrabold uppercase tracking-wider text-[#0C263D] hover:bg-slate-50 transition-all shadow-sm cursor-pointer whitespace-nowrap"
           >
-            <Download className="size-3.5 text-[#B64F43]" />
+            <Download className="size-3 sm:size-3.5 text-[#B64F43]" />
             <span>Speaker Kit</span>
           </button>
 
           <button
             type="button"
             onClick={onOpenCalendly}
-            className="inline-flex items-center gap-2 rounded-lg bg-[#0C263D] px-4 sm:px-5 py-2 text-xs font-extrabold uppercase tracking-wider text-white shadow-md hover:bg-[#1A4368] transition-all cursor-pointer"
+            className="inline-flex items-center gap-1 sm:gap-1.5 rounded-lg bg-[#0C263D] px-3 py-1.5 sm:px-4 sm:py-2 text-[0.7rem] sm:text-xs font-extrabold uppercase tracking-wider text-white shadow hover:bg-[#1A4368] transition-all cursor-pointer whitespace-nowrap"
           >
-            <Calendar className="size-3.5 text-[#B64F43]" />
-            <span>Start a Conversation</span>
-            <ArrowRight className="size-3.5 hidden sm:inline" />
+            <Calendar className="size-3 sm:size-3.5 text-[#B64F43]" />
+            <span>Start Conversation</span>
           </button>
 
           <button
             type="button"
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="inline-flex size-9 items-center justify-center rounded-lg border border-slate-200 text-slate-700 lg:hidden hover:bg-slate-100"
+            className="inline-flex size-8 sm:size-9 items-center justify-center rounded-lg border border-slate-200 text-slate-700 lg:hidden hover:bg-slate-100 cursor-pointer shrink-0"
           >
-            {mobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+            {mobileMenuOpen ? <X className="size-4 sm:size-5" /> : <Menu className="size-4 sm:size-5" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="border-b border-slate-200 bg-white px-4 py-5 lg:hidden shadow-xl animate-in slide-in-from-top-2 duration-200">
-          <div className="flex flex-col gap-1.5">
+        <div className="border-b border-slate-200 bg-white px-4 py-4 lg:hidden shadow-xl animate-in slide-in-from-top-2 duration-200">
+          <div className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="rounded-lg px-3.5 py-2 text-sm font-bold text-slate-800 hover:bg-slate-100"
+                className="rounded-lg px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-100"
               >
                 {link.label}
               </a>

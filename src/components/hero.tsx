@@ -21,62 +21,62 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
       {/* Technical Blueprint Grid Texture */}
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,#000_75%,transparent_100%)]" />
 
-      {/* Main Expansive Container (Ultra-wide max-w-[1720px], minimal side margin) */}
+      {/* Main Expansive Container */}
       <div className="relative mx-auto max-w-[1720px] px-4 sm:px-6 lg:px-8 xl:px-10">
-        <div className="grid items-end gap-6 lg:grid-cols-12 lg:gap-8 xl:gap-12">
+        <div className="grid items-end gap-2 sm:gap-6 lg:grid-cols-12 lg:gap-8 xl:gap-12">
           
-          {/* Left Column: Expansive Positioning Copy & Direct Action CTAs */}
-          <div className="lg:col-span-7 xl:col-span-7 pb-10 sm:pb-14 lg:pb-20 space-y-6 z-20">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1 text-xs font-bold uppercase tracking-[0.16em] text-[#B64F43] backdrop-blur shadow-sm">
-              <Sparkles className="size-3.5" />
-              <span>Construction Keynotes & Leadership Development</span>
+          {/* Left Column: Headline, Positioning Copy & Direct Actions */}
+          <div className="lg:col-span-7 xl:col-span-7 pb-4 sm:pb-8 lg:pb-20 space-y-4 sm:space-y-6 z-20">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[0.68rem] sm:text-xs font-bold uppercase tracking-[0.16em] text-[#B64F43] backdrop-blur shadow-sm">
+              <Sparkles className="size-3 sm:size-3.5" />
+              <span>Construction Keynotes & Leadership</span>
             </div>
 
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-[4.25rem] 2xl:text-[4.75rem] font-bold tracking-tight text-white leading-[1.05]">
+            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl xl:text-[4.25rem] 2xl:text-[4.75rem] font-bold tracking-tight text-white leading-[1.08] sm:leading-[1.05]">
               Build the number. <br />
               <span className="text-slate-200">
                 Lead the people who have to hit it.
               </span>
             </h1>
 
-            <p className="max-w-2xl text-base sm:text-lg lg:text-xl text-slate-300 leading-relaxed font-normal">
+            <p className="max-w-2xl text-sm sm:text-base lg:text-xl text-slate-300 leading-relaxed font-normal">
               Field-tested keynote speaking for AGC chapters and construction conventions, and multi-session leadership programs that transform technical project managers and superintendents into commercially minded, decisive leaders.
             </p>
 
             {/* Authority Trust Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-1 max-w-2xl">
-              <div className="rounded-xl border border-white/10 bg-white/5 p-3.5 backdrop-blur">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 pt-1 max-w-2xl">
+              <div className="rounded-xl border border-white/10 bg-white/5 p-2.5 sm:p-3.5 backdrop-blur">
                 <p className="font-extrabold text-[#B64F43] text-xs sm:text-sm tracking-wide">SINCE 1984</p>
-                <p className="text-slate-300 text-[0.72rem] mt-0.5">40+ Yrs in Heavy Civil</p>
+                <p className="text-slate-300 text-[0.68rem] sm:text-[0.72rem] mt-0.5">40+ Yrs in Heavy Civil</p>
               </div>
               <a
                 href={agcLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl border border-white/20 bg-white/10 p-3.5 backdrop-blur hover:border-[#B64F43] hover:bg-white/15 transition-all group"
+                className="rounded-xl border border-white/20 bg-white/10 p-2.5 sm:p-3.5 backdrop-blur hover:border-[#B64F43] hover:bg-white/15 transition-all group"
               >
                 <div className="flex items-center justify-between">
                   <p className="font-extrabold text-white text-xs sm:text-sm tracking-wide">AGC EDGE</p>
                   <ExternalLink className="size-3 text-slate-400 group-hover:text-[#B64F43]" />
                 </div>
-                <p className="text-slate-300 text-[0.72rem] mt-0.5 group-hover:text-white">Approved Instructor ↗</p>
+                <p className="text-slate-300 text-[0.68rem] sm:text-[0.72rem] mt-0.5 group-hover:text-white">Approved Instructor ↗</p>
               </a>
-              <div className="rounded-xl border border-white/10 bg-white/5 p-3.5 backdrop-blur">
+              <div className="rounded-xl border border-white/10 bg-white/5 p-2.5 sm:p-3.5 backdrop-blur">
                 <p className="font-extrabold text-[#B64F43] text-xs sm:text-sm tracking-wide">5 VOICES</p>
-                <p className="text-slate-300 text-[0.72rem] mt-0.5">Certified Facilitator</p>
+                <p className="text-slate-300 text-[0.68rem] sm:text-[0.72rem] mt-0.5">Certified Facilitator</p>
               </div>
-              <div className="rounded-xl border border-white/10 bg-white/5 p-3.5 backdrop-blur">
+              <div className="rounded-xl border border-white/10 bg-white/5 p-2.5 sm:p-3.5 backdrop-blur">
                 <p className="font-extrabold text-white text-xs sm:text-sm tracking-wide">IN THE FIELD</p>
-                <p className="text-slate-300 text-[0.72rem] mt-0.5">Priced & Run the Job</p>
+                <p className="text-slate-300 text-[0.68rem] sm:text-[0.72rem] mt-0.5">Priced & Run the Job</p>
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2 max-w-2xl">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3.5 pt-1 sm:pt-2 max-w-2xl">
               <button
                 type="button"
                 onClick={onOpenCalendly}
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#B64F43] px-7 py-4 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white shadow-xl hover:bg-[#9E3E33] transition-all text-center cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#B64F43] px-5 sm:px-7 py-3.5 sm:py-4 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white shadow-xl hover:bg-[#9E3E33] transition-all text-center cursor-pointer"
               >
                 <Calendar className="size-4" />
                 <span>Start a Conversation</span>
@@ -85,7 +85,7 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
 
               <a
                 href="#choose-objective"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/30 bg-white/10 px-6 py-4 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white hover:bg-white/20 transition-all backdrop-blur text-center"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/30 bg-white/10 px-5 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white hover:bg-white/20 transition-all backdrop-blur text-center"
               >
                 <span>Find Your Program ↓</span>
               </a>
@@ -93,20 +93,20 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
               <button
                 type="button"
                 onClick={onOpenSpeakerKit}
-                className="inline-flex items-center justify-center gap-1.5 px-4 py-4 text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors cursor-pointer"
+                className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 sm:px-4 sm:py-4 text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors cursor-pointer"
               >
-                <Download className="size-4 text-[#B64F43]" />
+                <Download className="size-3.5 sm:size-4 text-[#B64F43]" />
                 <span>Speaker Kit</span>
               </button>
             </div>
           </div>
 
-          {/* Right Column: BIGGER Dan Anchored to Right & Bottom Floor */}
-          <div className="lg:col-span-5 xl:col-span-5 relative flex items-end justify-end self-end h-full min-h-[580px] sm:min-h-[700px] lg:min-h-[820px] xl:min-h-[920px] 2xl:min-h-[1000px] overflow-visible">
+          {/* Right Column: Dan Cutout (No empty vertical gap on mobile) */}
+          <div className="lg:col-span-5 xl:col-span-5 relative flex items-end justify-center lg:justify-end self-end h-full min-h-[360px] sm:min-h-[480px] lg:min-h-[820px] xl:min-h-[920px] 2xl:min-h-[1000px] overflow-visible mt-2 lg:mt-0">
             {/* Ambient Lighting Pod Behind Dan */}
             <div className="pointer-events-none absolute bottom-0 right-0 w-full h-4/5 rounded-t-full bg-gradient-to-t from-[#B64F43]/30 via-[#31485A]/35 to-transparent blur-3xl" />
 
-            {/* Floating AGC Accreditation Seal (Top-Right Framing) */}
+            {/* Floating AGC Accreditation Seal (Top-Right Framing on desktop) */}
             <a
               href={agcLink}
               target="_blank"
@@ -125,19 +125,19 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
               </div>
             </a>
 
-            {/* Dan Cutout Image (BIGGER & Flush to the Right) */}
-            <div className="relative z-10 flex items-end justify-end w-full">
+            {/* Dan Cutout Image */}
+            <div className="relative z-10 flex items-end justify-center lg:justify-end w-full">
               <Image
                 src="/dan-hero.png"
                 alt="Daniel Dan Beatty - Construction Leadership Speaker & Trainer"
                 width={850}
                 height={1100}
                 priority
-                className="object-contain object-bottom drop-shadow-[0_25px_50px_rgba(0,0,0,0.85)] -mb-px max-h-[600px] sm:max-h-[720px] lg:max-h-[850px] xl:max-h-[950px] 2xl:max-h-[1040px] scale-105 sm:scale-110 lg:scale-115 xl:scale-120 2xl:scale-125 origin-bottom-right w-auto pointer-events-none"
+                className="object-contain object-bottom drop-shadow-[0_25px_50px_rgba(0,0,0,0.85)] -mb-px max-h-[380px] sm:max-h-[500px] lg:max-h-[850px] xl:max-h-[950px] 2xl:max-h-[1040px] scale-105 sm:scale-110 lg:scale-115 xl:scale-120 2xl:scale-125 origin-bottom lg:origin-bottom-right w-auto pointer-events-none"
               />
             </div>
 
-            {/* Floating Quote Badge (Anchored cleanly to Bottom-Left of Dan) */}
+            {/* Floating Quote Badge (Desktop only) */}
             <div className="absolute bottom-6 left-0 lg:-left-12 xl:-left-20 max-w-[290px] z-20 rounded-xl border border-white/20 bg-[#0C263D]/95 p-3.5 shadow-2xl backdrop-blur-md hidden md:block">
               <p className="text-[0.76rem] font-serif italic text-slate-100 leading-snug">
                 "I teach contractors how to build the number, and how to lead the people who have to hit it."
@@ -153,19 +153,19 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
         </div>
       </div>
 
-      {/* Association Credibility Bar (Single Clean Row across wide container) */}
-      <div className="border-t border-white/10 bg-[#081B2C] py-3.5 sm:py-4 relative z-20">
+      {/* Association Credibility Bar */}
+      <div className="border-t border-white/10 bg-[#081B2C] py-3 sm:py-4 relative z-20">
         <div className="mx-auto max-w-[1720px] px-4 sm:px-6 lg:px-8 xl:px-10">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-2.5 sm:gap-4">
-            <span className="text-[0.72rem] sm:text-xs font-extrabold uppercase tracking-[0.18em] text-slate-400 shrink-0 text-center lg:text-left">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-2 sm:gap-4">
+            <span className="text-[0.7rem] sm:text-xs font-extrabold uppercase tracking-[0.18em] text-slate-400 shrink-0 text-center lg:text-left">
               Trusted by Leading Construction Associations:
             </span>
-            <div className="flex flex-wrap lg:flex-nowrap items-center justify-center gap-2 sm:gap-2.5 text-[0.76rem] sm:text-xs font-bold text-slate-300">
+            <div className="flex flex-wrap lg:flex-nowrap items-center justify-center gap-1.5 sm:gap-2.5 text-[0.72rem] sm:text-xs font-bold text-slate-300">
               <a
                 href={agcLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-md bg-white/5 px-2.5 py-1 border border-white/10 hover:border-[#B64F43] hover:text-white transition-colors inline-flex items-center gap-1 shrink-0 whitespace-nowrap"
+                className="rounded-md bg-white/5 px-2 py-1 sm:px-2.5 border border-white/10 hover:border-[#B64F43] hover:text-white transition-colors inline-flex items-center gap-1 shrink-0 whitespace-nowrap"
               >
                 <span>AGC of America</span>
                 <ExternalLink className="size-3 text-slate-400" />
@@ -174,18 +174,18 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
                 href={agcLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-md bg-white/5 px-2.5 py-1 border border-white/10 hover:border-[#B64F43] hover:text-white transition-colors inline-flex items-center gap-1 shrink-0 whitespace-nowrap"
+                className="rounded-md bg-white/5 px-2 py-1 sm:px-2.5 border border-white/10 hover:border-[#B64F43] hover:text-white transition-colors inline-flex items-center gap-1 shrink-0 whitespace-nowrap"
               >
                 <span>AGC Edge</span>
                 <ExternalLink className="size-3 text-slate-400" />
               </a>
-              <span className="rounded-md bg-white/5 px-2.5 py-1 border border-white/10 shrink-0 whitespace-nowrap">
+              <span className="rounded-md bg-white/5 px-2 py-1 sm:px-2.5 border border-white/10 shrink-0 whitespace-nowrap">
                 Carolinas AGC
               </span>
-              <span className="rounded-md bg-white/5 px-2.5 py-1 border border-white/10 shrink-0 whitespace-nowrap">
+              <span className="rounded-md bg-white/5 px-2 py-1 sm:px-2.5 border border-white/10 shrink-0 whitespace-nowrap">
                 VTCA
               </span>
-              <span className="rounded-md bg-white/5 px-2.5 py-1 border border-white/10 shrink-0 whitespace-nowrap">
+              <span className="rounded-md bg-white/5 px-2 py-1 sm:px-2.5 border border-white/10 shrink-0 whitespace-nowrap">
                 GiANT 5 Voices
               </span>
             </div>
