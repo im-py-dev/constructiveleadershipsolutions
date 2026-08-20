@@ -83,9 +83,8 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth overflow-x-hidden max-w-[100vw]">
       <head>
-        {/* Calendly Preload, Preconnect & DNS-Prefetch for instant widget opening */}
         <link rel="preconnect" href="https://calendly.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://calendly.com" />
         <link rel="preconnect" href="https://assets.calendly.com" crossOrigin="anonymous" />
@@ -97,7 +96,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${lora.variable} ${plusJakarta.variable} font-sans antialiased bg-white text-slate-900`}
+        className={`${lora.variable} ${plusJakarta.variable} font-sans antialiased bg-white text-slate-900 overflow-x-hidden max-w-[100vw] w-full`}
       >
         {children}
       </body>

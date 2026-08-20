@@ -30,25 +30,25 @@ export function FloatingWebinarWidget({ onOpenDiagnostic }: FloatingWebinarWidge
 
   if (isMinimized) {
     return (
-      <div className="fixed bottom-5 right-5 z-40 animate-in fade-in slide-in-from-bottom-2 duration-200">
+      <div className="fixed bottom-3 right-3 sm:bottom-5 sm:right-5 z-40 max-w-[calc(100vw-1.5rem)] animate-in fade-in slide-in-from-bottom-2 duration-200">
         <button
           type="button"
           onClick={() => setIsMinimized(false)}
-          className="flex items-center gap-2.5 rounded-full border-2 border-[#B64F43] bg-[#0C263D] px-4 py-2.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-2xl hover:bg-[#1A4368] transition-all cursor-pointer"
+          className="flex items-center gap-2 rounded-full border-2 border-[#B64F43] bg-[#0C263D] px-3.5 py-2 sm:px-4 sm:py-2.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-2xl hover:bg-[#1A4368] transition-all cursor-pointer whitespace-nowrap"
         >
-          <Target className="size-4 text-[#B64F43]" />
-          <span>Free Leadership Diagnostic</span>
+          <Target className="size-3.5 sm:size-4 text-[#B64F43]" />
+          <span>Free Diagnostic</span>
         </button>
       </div>
     );
   }
 
   return (
-    <div className="fixed bottom-5 right-5 z-40 w-[340px] sm:w-[360px] rounded-2xl border border-white/20 bg-[#0C263D] text-white shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-300">
+    <div className="fixed bottom-3 right-3 sm:bottom-5 sm:right-5 z-40 w-[calc(100vw-1.5rem)] max-w-[350px] rounded-2xl border border-white/20 bg-[#0C263D] text-white shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-300">
       {/* Top Banner with Dan's Photo & Close Button */}
-      <div className="relative bg-[#081B2C] px-4 py-3 border-b border-white/10 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="relative size-11 rounded-full overflow-hidden border-2 border-[#B64F43] shrink-0 bg-slate-900">
+      <div className="relative bg-[#081B2C] px-3.5 py-2.5 sm:px-4 sm:py-3 border-b border-white/10 flex items-center justify-between">
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          <div className="relative size-10 sm:size-11 rounded-full overflow-hidden border-2 border-[#B64F43] shrink-0 bg-slate-900">
             <Image
               src="/dan-headshot.png"
               alt="Dan Beatty"
@@ -57,7 +57,7 @@ export function FloatingWebinarWidget({ onOpenDiagnostic }: FloatingWebinarWidge
             />
           </div>
           <div>
-            <span className="rounded-full bg-[#B64F43]/20 border border-[#B64F43]/40 px-2 py-0.5 text-[0.65rem] font-black uppercase tracking-wider text-[#B64F43] inline-block">
+            <span className="rounded-full bg-[#B64F43]/20 border border-[#B64F43]/40 px-2 py-0.5 text-[0.62rem] sm:text-[0.65rem] font-black uppercase tracking-wider text-[#B64F43] inline-block">
               Free Field Assessment
             </span>
             <p className="text-xs font-bold text-white leading-tight mt-0.5">Daniel "Dan" Beatty</p>
@@ -75,27 +75,27 @@ export function FloatingWebinarWidget({ onOpenDiagnostic }: FloatingWebinarWidge
       </div>
 
       {/* Body Content */}
-      <div className="p-4 sm:p-5 space-y-3.5">
-        <h4 className="font-serif text-base sm:text-lg font-bold text-white leading-snug">
+      <div className="p-3.5 sm:p-5 space-y-3">
+        <h4 className="font-serif text-sm sm:text-base font-bold text-white leading-snug">
           How to Protect 3–5% Jobsite Margin & Lead Field Crews
         </h4>
 
-        <div className="rounded-lg bg-white/5 border border-white/10 p-2.5 flex items-center gap-2">
-          <span className="rounded bg-[#B64F43] px-1.5 py-0.5 text-[0.62rem] font-extrabold uppercase tracking-wider text-white">
+        <div className="rounded-lg bg-white/5 border border-white/10 p-2 sm:p-2.5 flex items-center gap-2">
+          <span className="rounded bg-[#B64F43] px-1.5 py-0.5 text-[0.6rem] sm:text-[0.62rem] font-extrabold uppercase tracking-wider text-white shrink-0">
             Leader Bonus
           </span>
-          <p className="text-[0.72rem] text-slate-300">
+          <p className="text-[0.7rem] sm:text-[0.72rem] text-slate-300 leading-tight">
             Get Dan's instant <strong className="text-white">PM Margin Defense Scorecard</strong>
           </p>
         </div>
 
         {/* Live Session Row */}
-        <div className="flex items-center justify-between text-xs text-slate-300 border-t border-b border-white/10 py-2">
+        <div className="flex items-center justify-between text-[0.72rem] sm:text-xs text-slate-300 border-t border-b border-white/10 py-1.5 sm:py-2">
           <div className="flex items-center gap-1.5 text-amber-300 font-bold">
             <Clock className="size-3.5" />
-            <span>Instant Interactive Access</span>
+            <span>Interactive Access</span>
           </div>
-          <div className="flex items-center gap-1 font-mono font-bold text-xs bg-black/40 px-2 py-1 rounded border border-white/10 text-white">
+          <div className="flex items-center gap-1 font-mono font-bold text-[0.72rem] sm:text-xs bg-black/40 px-2 py-0.5 sm:py-1 rounded border border-white/10 text-white">
             <span>{String(minutes).padStart(2, '0')}m</span>
             <span>:</span>
             <span>{String(seconds).padStart(2, '0')}s</span>
@@ -106,13 +106,13 @@ export function FloatingWebinarWidget({ onOpenDiagnostic }: FloatingWebinarWidge
         <button
           type="button"
           onClick={onOpenDiagnostic}
-          className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#B64F43] py-3.5 px-4 text-xs font-black uppercase tracking-wider text-white shadow-xl hover:bg-[#9E3E33] transition-all cursor-pointer group"
+          className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#B64F43] py-3 sm:py-3.5 px-4 text-xs font-black uppercase tracking-wider text-white shadow-xl hover:bg-[#9E3E33] transition-all cursor-pointer group"
         >
           <span>Take 2-Min Free Diagnostic</span>
-          <ArrowRight className="size-4 group-hover:translate-x-0.5 transition-transform" />
+          <ArrowRight className="size-3.5 sm:size-4 group-hover:translate-x-0.5 transition-transform" />
         </button>
 
-        <p className="text-center text-[0.68rem] text-slate-400">
+        <p className="text-center text-[0.65rem] sm:text-[0.68rem] text-slate-400">
           Free · Instant Benchmark · 60-Second Signup
         </p>
       </div>

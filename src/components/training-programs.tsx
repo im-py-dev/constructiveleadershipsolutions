@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2, ArrowRight, ShieldCheck, BarChart3, Users2, Compass, Layers, Clock, Award, TrendingUp } from "lucide-react";
+import { CheckCircle2, ArrowRight, ShieldCheck, BarChart3, Users2, Compass, Layers, Clock, Award, TrendingUp, UserCheck, Briefcase } from "lucide-react";
 
 interface TrainingProgramsProps {
   onOpenCalendly: () => void;
@@ -118,7 +118,7 @@ export function TrainingPrograms({ onOpenCalendly }: TrainingProgramsProps) {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B64F43]">
-            Contractor Training Tracks
+            Contractor Training Tracks & Executive Advisory
           </p>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0C263D] tracking-tight">
             Field-Tested Development for the People Who Drive Production.
@@ -128,7 +128,7 @@ export function TrainingPrograms({ onOpenCalendly }: TrainingProgramsProps) {
           </p>
         </div>
 
-        {/* 2-by-2 on mobile/tablet, 4-in-a-row on desktop (PERFECTLY BALANCED, NO WRAP ORPHANS) */}
+        {/* 2-by-2 on mobile/tablet, 4-in-a-row on desktop */}
         <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 max-w-5xl mx-auto">
           {programs.map((prog) => {
             const isSelected = activeTab === prog.id;
@@ -241,28 +241,75 @@ export function TrainingPrograms({ onOpenCalendly }: TrainingProgramsProps) {
           </div>
         </div>
 
-        {/* Enterprise Callout */}
-        <div className="mt-14 rounded-2xl bg-[#0C263D] text-white p-8 sm:p-12 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-2xl">
-          <div className="space-y-2 text-center lg:text-left">
-            <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B64F43]">
-              Enterprise Scalability
-            </span>
-            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
-              Have 10+ Project Managers Across Multiple Regions?
-            </h3>
-            <p className="text-sm text-slate-300 max-w-2xl leading-relaxed">
-              Dan designs customized enterprise cohorts combining virtual masterclasses, on-site jobsite walkthroughs, and 1:1 executive leadership coaching for regional and national general contractors.
+        {/* 1:1 Executive Coaching & Enterprise Advisory Callout Cards */}
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
+          {/* Card 1: 1:1 Executive & Owner Advisory */}
+          <div className="rounded-2xl border border-slate-200 bg-white p-8 space-y-4 shadow-md hover:border-[#0C263D] transition-colors">
+            <div className="flex items-center gap-3">
+              <div className="flex size-10 items-center justify-center rounded-xl bg-[#0C263D] text-white">
+                <UserCheck className="size-5 text-[#B64F43]" />
+              </div>
+              <div>
+                <span className="text-[0.68rem] font-extrabold uppercase tracking-wider text-[#B64F43]">
+                  Revenue Pillar 3 · Advisory Retainer
+                </span>
+                <h4 className="font-serif text-xl font-bold text-[#0C263D]">
+                  1:1 Business Coaching for GC Owners
+                </h4>
+              </div>
+            </div>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Confidential, monthly executive sounding-board for construction CEOs, Operations VPs, and Principals navigating leadership succession, major pursuit risk audits, and field communication culture.
             </p>
+            <ul className="space-y-2 text-xs text-slate-700">
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="size-3.5 text-[#B64F43]" />
+                <span>Pre-con bid risk evaluation & margin defense</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="size-3.5 text-[#B64F43]" />
+                <span>Executive alignment and partner conflict resolution</span>
+              </li>
+            </ul>
+            <button
+              type="button"
+              onClick={onOpenCalendly}
+              className="mt-2 inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#0C263D] hover:text-[#B64F43] transition-colors cursor-pointer"
+            >
+              <span>Explore Executive Retainer</span>
+              <ArrowRight className="size-3.5" />
+            </button>
           </div>
 
-          <button
-            type="button"
-            onClick={onOpenCalendly}
-            className="inline-flex items-center gap-2 rounded-lg bg-[#B64F43] px-7 py-4 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white hover:bg-[#9E3E33] transition-all shadow-xl shrink-0 cursor-pointer"
-          >
-            <span>Design a Custom Cohort</span>
-            <ArrowRight className="size-4" />
-          </button>
+          {/* Card 2: Enterprise Multi-Regional Cohorts */}
+          <div className="rounded-2xl bg-[#0C263D] text-white p-8 space-y-4 shadow-xl relative overflow-hidden flex flex-col justify-between">
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="flex size-10 items-center justify-center rounded-xl bg-white/10 text-white">
+                  <Briefcase className="size-5 text-[#B64F43]" />
+                </div>
+                <div>
+                  <span className="text-[0.68rem] font-extrabold uppercase tracking-wider text-[#B64F43]">
+                    Enterprise Scalability
+                  </span>
+                  <h4 className="font-serif text-xl font-bold text-white">
+                    Multi-Company Cohort Programs
+                  </h4>
+                </div>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Have 10+ Project Managers across different offices? Dan designs bespoke cohorts combining virtual masterclasses, jobsite walkthroughs, and 1:1 coaching.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={onOpenCalendly}
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#B64F43] py-3 px-5 text-xs font-extrabold uppercase tracking-wider text-white hover:bg-[#9E3E33] transition-all shadow cursor-pointer"
+            >
+              <span>Design a Custom Enterprise Cohort</span>
+              <ArrowRight className="size-3.5" />
+            </button>
+          </div>
         </div>
       </div>
     </section>

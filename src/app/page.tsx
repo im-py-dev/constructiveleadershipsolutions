@@ -26,7 +26,7 @@ export default function HomePage() {
   const [cohortApplyOpen, setCohortApplyOpen] = useState(false);
 
   return (
-    <main className="min-h-screen bg-white text-slate-900 selection:bg-[#B64F43] selection:text-white font-sans antialiased">
+    <main className="min-h-screen bg-white text-slate-900 selection:bg-[#B64F43] selection:text-white font-sans antialiased overflow-x-hidden w-full max-w-[100vw]">
       {/* 1. Header with Direct AGC Edge Credential */}
       <Header
         onOpenCalendly={() => setCalendlyOpen(true)}
