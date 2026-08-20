@@ -12,20 +12,16 @@ interface HeaderProps {
 export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navLinks = [
-    { label: "Overview", href: "#overview" },
-    { label: "For Associations", href: "#associations" },
-    { label: "For Contractors", href: "#contractors" },
-    { label: "Speaker Reel", href: "#speaker-reel" },
-    { label: "Training Tracks", href: "#training-programs" },
-    { label: "Cohort Academy", href: "#cohort-program" },
-    { label: "Podcasts", href: "#podcasts" },
-    { label: "The Friction", href: "#friction" },
-    { label: "About Dan", href: "#about" },
-    { label: "Newsletter", href: "#newsletter" },
-  ];
-
   const agcLink = "https://pmc.agc.org/speakers/#:~:text=Hohns%20%E2%80%A2%20Inglis%2C%20Inc.-,Dan%20Beatty,-Constructive%20Leadership%20Solutions";
+
+  // 5 Clean, High-Level Navigation Anchors (Easy on eyes, zero crowding)
+  const navLinks = [
+    { label: "Speaking & Reel", href: "#speaker-reel" },
+    { label: "Contractor Training", href: "#training-programs" },
+    { label: "Cohort Academy", href: "#cohort-program" },
+    { label: "Podcasts & Media", href: "#podcasts" },
+    { label: "About Dan", href: "#about" },
+  ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur-md transition-all shadow-sm">
@@ -33,7 +29,6 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
       <div className="hidden border-b border-slate-800 bg-[#0C263D] px-4 py-2.5 sm:py-3 text-xs sm:text-[0.84rem] text-slate-200 md:block">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           <div className="flex items-center gap-4 sm:gap-6">
-            {/* Clickable Verified AGC Credential Pill */}
             <a
               href={agcLink}
               target="_blank"
@@ -84,13 +79,13 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
           </div>
         </a>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden xl:flex items-center gap-1 text-[0.82rem] font-bold text-[#31485A]">
+        {/* Clean Desktop Navigation (5 Spacious Links) */}
+        <nav className="hidden lg:flex items-center gap-1 sm:gap-2 text-[0.86rem] font-bold text-[#31485A]">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="rounded-md px-2.5 py-2 text-slate-700 hover:bg-slate-100 hover:text-[#0C263D] transition-colors"
+              className="rounded-lg px-3.5 py-2 text-slate-700 hover:bg-slate-100 hover:text-[#0C263D] transition-colors"
             >
               {link.label}
             </a>
@@ -102,7 +97,7 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
           <button
             type="button"
             onClick={onOpenSpeakerKit}
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-xs font-extrabold uppercase tracking-wider text-[#0C263D] hover:bg-slate-50 hover:border-slate-400 transition-all shadow-sm"
+            className="hidden sm:inline-flex items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-xs font-extrabold uppercase tracking-wider text-[#0C263D] hover:bg-slate-50 hover:border-slate-400 transition-all shadow-sm cursor-pointer"
           >
             <Download className="size-3.5 text-[#B64F43]" />
             <span>Speaker Kit</span>
@@ -111,7 +106,7 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
           <button
             type="button"
             onClick={onOpenCalendly}
-            className="inline-flex items-center gap-2 rounded-lg bg-[#0C263D] px-4 sm:px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-md hover:bg-[#1A4368] transition-all"
+            className="inline-flex items-center gap-2 rounded-lg bg-[#0C263D] px-4 sm:px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-md hover:bg-[#1A4368] transition-all cursor-pointer"
           >
             <Calendar className="size-3.5 text-[#B64F43]" />
             <span>Start a Conversation</span>
@@ -122,7 +117,7 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
             type="button"
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="inline-flex size-10 items-center justify-center rounded-lg border border-slate-200 text-slate-700 xl:hidden hover:bg-slate-100"
+            className="inline-flex size-10 items-center justify-center rounded-lg border border-slate-200 text-slate-700 lg:hidden hover:bg-slate-100"
           >
             {mobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
@@ -131,7 +126,7 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="border-b border-slate-200 bg-white px-4 py-5 xl:hidden shadow-xl animate-in slide-in-from-top-2 duration-200">
+        <div className="border-b border-slate-200 bg-white px-4 py-5 lg:hidden shadow-xl animate-in slide-in-from-top-2 duration-200">
           <div className="flex flex-col gap-1.5">
             {navLinks.map((link) => (
               <a

@@ -13,6 +13,8 @@ export function TrainingPrograms({ onOpenCalendly }: TrainingProgramsProps) {
   const programs = [
     {
       id: "pm-development",
+      shortTitle: "PM Development",
+      shortBadge: "AGC PMDP Curriculum",
       tag: "FLAGSHIP AGC & CONTRACTOR CURRICULUM",
       title: "Project Manager Development Program (PMDP)",
       subtitle: "Transform technical project managers into decisive, commercially minded leaders.",
@@ -36,6 +38,8 @@ export function TrainingPrograms({ onOpenCalendly }: TrainingProgramsProps) {
     },
     {
       id: "builder-to-leader",
+      shortTitle: "Builder to Leader",
+      shortBadge: "AGC STP / CSF Training",
       tag: "FIELD SUPERVISOR MASTERY (STP / CSF)",
       title: "From Strong Builder to Leader of People",
       subtitle: "Turn master craftspeople into confident, respected superintendents.",
@@ -58,6 +62,8 @@ export function TrainingPrograms({ onOpenCalendly }: TrainingProgramsProps) {
     },
     {
       id: "estimating-impact",
+      shortTitle: "Estimating with Impact",
+      shortBadge: "Pre-Con Margin Protection",
       tag: "BID DISCIPLINE & PRE-CON",
       title: "Estimating with Impact",
       subtitle: "Protect project margins before the first shovel hits the ground.",
@@ -80,6 +86,8 @@ export function TrainingPrograms({ onOpenCalendly }: TrainingProgramsProps) {
     },
     {
       id: "5-voices-communication",
+      shortTitle: "5 Voices Matrix",
+      shortBadge: "Field & Office Culture",
       tag: "ORGANIZATIONAL CULTURE",
       title: "5 Voices Team Communication Matrix",
       subtitle: "Eliminate the costly 'Personality Tax' across your entire company.",
@@ -120,23 +128,31 @@ export function TrainingPrograms({ onOpenCalendly }: TrainingProgramsProps) {
           </p>
         </div>
 
-        {/* Tab Buttons */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-          {programs.map((prog) => (
-            <button
-              key={prog.id}
-              type="button"
-              onClick={() => setActiveTab(prog.id)}
-              className={
-                "rounded-lg px-4 py-3 text-xs sm:text-sm font-extrabold uppercase tracking-wider transition-all cursor-pointer " +
-                (activeTab === prog.id
-                  ? "bg-[#0C263D] text-white shadow-md"
-                  : "bg-white text-slate-700 border border-slate-200 hover:border-[#B64F43] hover:text-[#0C263D]")
-              }
-            >
-              {prog.title}
-            </button>
-          ))}
+        {/* 2-by-2 on mobile/tablet, 4-in-a-row on desktop (PERFECTLY BALANCED, NO WRAP ORPHANS) */}
+        <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 max-w-5xl mx-auto">
+          {programs.map((prog) => {
+            const isSelected = activeTab === prog.id;
+            return (
+              <button
+                key={prog.id}
+                type="button"
+                onClick={() => setActiveTab(prog.id)}
+                className={
+                  "rounded-xl p-4 text-center transition-all cursor-pointer flex flex-col items-center justify-center min-h-[76px] border-2 " +
+                  (isSelected
+                    ? "bg-[#0C263D] text-white border-[#B64F43] shadow-lg scale-[1.02] ring-2 ring-[#B64F43]/30"
+                    : "bg-white text-slate-800 border-slate-200 hover:border-slate-300 hover:shadow-sm")
+                }
+              >
+                <span className={"text-xs sm:text-sm font-extrabold uppercase tracking-wider " + (isSelected ? "text-white" : "text-[#0C263D]")}>
+                  {prog.shortTitle}
+                </span>
+                <span className={"text-[0.68rem] font-bold mt-1 " + (isSelected ? "text-[#B64F43]" : "text-slate-500")}>
+                  {prog.shortBadge}
+                </span>
+              </button>
+            );
+          })}
         </div>
 
         {/* Selected Program Box */}
