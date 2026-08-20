@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { X, Calendar, Phone, Mail, Loader2 } from "lucide-react";
+import { X, Calendar, Phone, Mail } from "lucide-react";
 
 interface CalendlyModalProps {
   isOpen: boolean;
@@ -9,16 +9,8 @@ interface CalendlyModalProps {
 }
 
 export function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
-  // Default duration is 30min as requested
+  // Default duration is 30min
   const [duration, setDuration] = useState<"15" | "30" | "60">("30");
-  const [iframeLoaded, setIframeLoaded] = useState(false);
-
-  // Calendly URLs for each duration
-  const calendlyUrls = {
-    "15": "https://calendly.com/dan-danbeatty/15min?hide_gdpr_banner=1&primary_color=b64f43",
-    "30": "https://calendly.com/dan-danbeatty/30min?hide_gdpr_banner=1&primary_color=b64f43",
-    "60": "https://calendly.com/dan-danbeatty/60min?hide_gdpr_banner=1&primary_color=b64f43",
-  };
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -33,13 +25,6 @@ export function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen, onClose]);
-
-  const handleDurationChange = (newDuration: "15" | "30" | "60") => {
-    if (newDuration !== duration) {
-      setIframeLoaded(false);
-      setDuration(newDuration);
-    }
-  };
 
   return (
     <div
@@ -66,9 +51,9 @@ export function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
                 Schedule Discovery with Dan Beatty
               </h3>
               <p className="text-[0.72rem] sm:text-xs text-slate-300">
-                {duration === "15" && "15-Min Quick Intro · Zero Obligation"}
+                {duration === "15" && "15-Min One-on-One Quick Intro · Zero Obligation"}
                 {duration === "30" && "30-Min Discovery & Roadmap · Default"}
-                {duration === "60" && "60-Min Strategy Deep Dive & Review"}
+                {duration === "60" && "60-Minute Strategy Deep Dive & Review"}
               </p>
             </div>
           </div>
@@ -79,7 +64,7 @@ export function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
             <div className="inline-flex items-center rounded-lg bg-black/40 p-1 border border-white/15">
               <button
                 type="button"
-                onClick={() => handleDurationChange("15")}
+                onClick={() => setDuration("15")}
                 className={
                   "rounded-md px-2.5 py-1 text-xs font-extrabold uppercase tracking-wider transition-all cursor-pointer " +
                   (duration === "15"
@@ -91,7 +76,7 @@ export function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
               </button>
               <button
                 type="button"
-                onClick={() => handleDurationChange("30")}
+                onClick={() => setDuration("30")}
                 className={
                   "rounded-md px-2.5 py-1 text-xs font-extrabold uppercase tracking-wider transition-all cursor-pointer " +
                   (duration === "30"
@@ -103,7 +88,7 @@ export function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
               </button>
               <button
                 type="button"
-                onClick={() => handleDurationChange("60")}
+                onClick={() => setDuration("60")}
                 className={
                   "rounded-md px-2.5 py-1 text-xs font-extrabold uppercase tracking-wider transition-all cursor-pointer " +
                   (duration === "60"
@@ -127,21 +112,27 @@ export function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
           </div>
         </div>
 
-        {/* Embedded Calendly iframe */}
+        {/* Embedded Calendly iframes (All 3 Preloaded in Parallel in DOM for instant 0ms switching) */}
         <div className="flex-1 w-full bg-slate-50 relative">
-          {!iframeLoaded && (
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-slate-50 text-slate-500 z-10">
-              <Loader2 className="size-8 animate-spin text-[#B64F43]" />
-              <p className="text-xs font-bold uppercase tracking-wider">Loading {duration}-Minute Calendar Slots...</p>
-            </div>
-          )}
-
+          {/* 15-Minute Meeting: https://calendly.com/dan-danbeatty/one-on-one */}
           <iframe
-            key={duration}
-            src={calendlyUrls[duration]}
-            title={"Book a " + duration + "-Minute Conversation with Dan Beatty"}
-            onLoad={() => setIframeLoaded(true)}
-            className="size-full border-0"
+            src="https://calendly.com/dan-danbeatty/one-on-one?hide_gdpr_banner=1&primary_color=b64f43"
+            title="Book a 15-Minute Conversation with Dan Beatty"
+            className={"size-full border-0 " + (duration === "15" ? "block" : "hidden")}
+          />
+
+          {/* 30-Minute Meeting (Default): https://calendly.com/dan-danbeatty */}
+          <iframe
+            src="https://calendly.com/dan-danbeatty?hide_gdpr_banner=1&primary_color=b64f43"
+            title="Book a 30-Minute Conversation with Dan Beatty"
+            className={"size-full border-0 " + (duration === "30" ? "block" : "hidden")}
+          />
+
+          {/* 60-Minute Meeting: https://calendly.com/dan-danbeatty/60-minute-meeting */}
+          <iframe
+            src="https://calendly.com/dan-danbeatty/60-minute-meeting?hide_gdpr_banner=1&primary_color=b64f43"
+            title="Book a 60-Minute Conversation with Dan Beatty"
+            className={"size-full border-0 " + (duration === "60" ? "block" : "hidden")}
           />
         </div>
 
