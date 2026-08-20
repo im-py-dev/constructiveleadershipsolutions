@@ -13,15 +13,15 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
   const agcLink = "https://pmc.agc.org/speakers/#:~:text=Hohns%20%E2%80%A2%20Inglis%2C%20Inc.-,Dan%20Beatty,-Constructive%20Leadership%20Solutions";
 
   return (
-    <section id="overview" className="relative overflow-hidden bg-blueprint-dark text-white pt-12 sm:pt-16 lg:pt-20 pb-0 border-b border-slate-800">
+    <section id="overview" className="relative overflow-hidden bg-blueprint-dark text-white pt-10 sm:pt-14 lg:pt-16 pb-0 border-b border-slate-800">
       {/* Ambient Radial Spotlight Glows */}
-      <div className="pointer-events-none absolute -top-40 right-10 size-[700px] rounded-full bg-[#B64F43]/20 blur-[150px]" />
-      <div className="pointer-events-none absolute top-1/2 left-0 size-[550px] rounded-full bg-[#31485A]/40 blur-[130px]" />
+      <div className="pointer-events-none absolute -top-40 right-10 size-[800px] rounded-full bg-[#B64F43]/25 blur-[160px]" />
+      <div className="pointer-events-none absolute top-1/3 left-0 size-[650px] rounded-full bg-[#31485A]/45 blur-[140px]" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-end gap-8 lg:grid-cols-12 lg:gap-8">
-          {/* Left Column: Core Positioning Copy & Dual Primary CTAs */}
-          <div className="lg:col-span-7 pb-12 sm:pb-16 lg:pb-24 space-y-6">
+        <div className="grid items-end gap-6 lg:grid-cols-12 lg:gap-8">
+          {/* Left Column: Core Positioning Copy & CTAs */}
+          <div className="lg:col-span-6 pb-12 sm:pb-16 lg:pb-24 space-y-6 z-20">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1 text-xs font-bold uppercase tracking-[0.16em] text-[#B64F43] backdrop-blur">
               <Sparkles className="size-3.5" />
               <span>Construction Keynotes & Leadership Development</span>
@@ -34,7 +34,7 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
               </span>
             </h1>
 
-            <p className="max-w-2xl text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+            <p className="max-w-xl text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
               Field-tested keynote speaking for AGC chapters and construction conventions, and multi-session leadership programs that transform technical project managers and superintendents into commercially minded, decisive leaders.
             </p>
 
@@ -82,7 +82,7 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
                 href="#choose-objective"
                 className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-white/30 bg-white/10 px-6 py-4 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white hover:bg-white/20 transition-all backdrop-blur text-center"
               >
-                <span>Find Your Program Below ↓</span>
+                <span>Find Your Program ↓</span>
               </a>
 
               <button
@@ -96,27 +96,29 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
             </div>
           </div>
 
-          {/* Right Column: Dan Beatty Cutout (STICKING TO SECTION FLOOR) */}
-          <div className="lg:col-span-5 relative flex items-end justify-center lg:justify-end self-end h-full min-h-[500px] sm:min-h-[600px] lg:min-h-[720px]">
-            <div className="pointer-events-none absolute bottom-0 inset-x-0 h-4/5 rounded-t-full bg-gradient-to-t from-[#B64F43]/25 via-[#31485A]/35 to-transparent blur-3xl" />
+          {/* Right Column: Dan Beatty Cutout (BIGGER, DOMINANT & ANCHORED TO BOTTOM FLOOR) */}
+          <div className="lg:col-span-6 relative flex items-end justify-center lg:justify-end self-end h-full min-h-[580px] sm:min-h-[720px] lg:min-h-[820px] xl:min-h-[900px] overflow-visible">
+            {/* Ambient Radial Spotlight Behind Dan */}
+            <div className="pointer-events-none absolute bottom-0 inset-x-0 h-full rounded-t-full bg-gradient-to-t from-[#B64F43]/30 via-[#31485A]/40 to-transparent blur-3xl" />
 
+            {/* Dan's Cutout Image - Large & Authoritative */}
             <div className="relative z-10 flex items-end justify-center w-full">
               <Image
                 src="/dan-hero.png"
                 alt="Daniel Dan Beatty - Construction Leadership Speaker & Trainer"
-                width={650}
-                height={850}
+                width={800}
+                height={1050}
                 priority
-                className="object-contain object-bottom drop-shadow-2xl -mb-px max-h-[540px] sm:max-h-[640px] lg:max-h-[750px] w-auto pointer-events-none"
+                className="object-contain object-bottom drop-shadow-2xl -mb-px max-h-[600px] sm:max-h-[740px] lg:max-h-[850px] xl:max-h-[940px] scale-105 sm:scale-110 lg:scale-115 xl:scale-125 origin-bottom w-auto pointer-events-none"
               />
             </div>
 
-            {/* Clickable Floating AGC Badge */}
+            {/* Floating AGC Badge (Top Left of Dan's Head) */}
             <a
               href={agcLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute top-8 left-2 sm:left-0 z-20 rounded-xl border border-white/20 bg-[#0C263D]/95 p-3 shadow-2xl backdrop-blur-md hidden sm:flex items-center gap-3 hover:border-[#B64F43] transition-all group"
+              className="absolute top-6 left-0 sm:-left-4 z-20 rounded-xl border border-white/20 bg-[#0C263D]/95 p-3 shadow-2xl backdrop-blur-md hidden sm:flex items-center gap-3 hover:border-[#B64F43] transition-all group"
             >
               <div className="flex size-9 items-center justify-center rounded-lg bg-[#B64F43] text-white">
                 <Award className="size-5" />
@@ -130,8 +132,8 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
               </div>
             </a>
 
-            {/* Floating Quote Badge */}
-            <div className="absolute bottom-6 -left-6 sm:left-0 max-w-xs z-20 rounded-xl border border-white/25 bg-[#0C263D]/95 p-3.5 shadow-2xl backdrop-blur-md hidden md:block">
+            {/* Floating Quote Badge (Bottom Left of Dan's Waist) */}
+            <div className="absolute bottom-6 -left-6 sm:-left-12 max-w-xs z-20 rounded-xl border border-white/25 bg-[#0C263D]/95 p-3.5 shadow-2xl backdrop-blur-md hidden md:block">
               <p className="text-[0.78rem] font-serif italic text-slate-100 leading-snug">
                 "I teach contractors how to build the number, and how to lead the people who have to hit it."
               </p>
@@ -147,7 +149,7 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
       </div>
 
       {/* Association Credibility Bar */}
-      <div className="border-t border-white/10 bg-[#081B2C] py-5">
+      <div className="border-t border-white/10 bg-[#081B2C] py-5 relative z-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-slate-400">
