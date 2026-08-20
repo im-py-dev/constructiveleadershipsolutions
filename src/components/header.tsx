@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Menu, X, ArrowRight, Phone, Download, Calendar, ExternalLink, Mail, Award, Sparkles } from "lucide-react";
+import { Menu, X, ArrowRight, Phone, Download, Calendar, ExternalLink, Mail, Award } from "lucide-react";
 
 interface HeaderProps {
   onOpenCalendly: () => void;
@@ -24,12 +24,12 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white shadow-sm transition-all">
-      {/* 1. UPPER ROW: Logo + Direct Contact */}
+      {/* 1. UPPER ROW: Logo + Direct Phone & Email */}
       <div className="bg-[#0C263D] text-white px-3 sm:px-6 py-2 sm:py-2.5 border-b border-slate-800">
         <div className="mx-auto flex max-w-[1720px] items-center justify-between gap-3">
-          {/* Logo */}
+          {/* Brand Logo */}
           <a href="#overview" className="flex items-center gap-2 group shrink-0">
-            <div className="relative h-8 w-40 sm:h-10 sm:w-52">
+            <div className="relative h-7 w-36 sm:h-10 sm:w-52">
               <Image
                 src="/logo.png"
                 alt="Constructive Leadership Solutions"
@@ -62,7 +62,7 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
           <div className="flex items-center gap-3 text-xs sm:text-sm font-semibold">
             <a
               href="tel:7033807923"
-              className="flex items-center gap-1.5 text-white hover:text-[#B64F43] transition-colors whitespace-nowrap"
+              className="flex items-center gap-1.5 text-white hover:text-[#B64F43] transition-colors whitespace-nowrap text-xs sm:text-sm"
             >
               <Phone className="size-3.5 text-[#B64F43]" />
               <span>(703) 380-7923</span>
@@ -70,7 +70,7 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
             <span className="hidden lg:inline text-slate-600">|</span>
             <a
               href="mailto:dan@constructiveleadershipsolutions.com"
-              className="hidden lg:flex items-center gap-1.5 text-slate-300 hover:text-white transition-colors"
+              className="hidden lg:flex items-center gap-1.5 text-slate-300 hover:text-white transition-colors text-xs"
             >
               <Mail className="size-3.5 text-slate-400" />
               <span>dan@constructiveleadershipsolutions.com</span>
@@ -79,8 +79,8 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
         </div>
       </div>
 
-      {/* 2. LOWER ROW: Clean Navigation Links + Responsive Compact CTAs */}
-      <div className="mx-auto flex max-w-[1720px] items-center justify-between px-3 py-2 sm:px-6 sm:py-2.5">
+      {/* 2. LOWER ROW: Clean Desktop Nav + Compact Sized Mobile Bar */}
+      <div className="mx-auto flex max-w-[1720px] items-center justify-between px-3 py-1.5 sm:px-6 sm:py-2.5">
         {/* Desktop Nav Links */}
         <nav className="hidden lg:flex items-center gap-1 text-[0.88rem] font-bold text-[#31485A]">
           {navLinks.map((link) => (
@@ -94,28 +94,28 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
           ))}
         </nav>
 
-        {/* Mobile Left Quick Pill */}
+        {/* Mobile Left Brand Category */}
         <div className="flex items-center gap-1.5 lg:hidden">
-          <span className="rounded-full bg-[#B64F43]/10 border border-[#B64F43]/20 px-2 py-0.5 text-[0.68rem] font-extrabold uppercase tracking-wider text-[#B64F43]">
-            Keynotes & Training
+          <span className="text-[0.72rem] font-extrabold uppercase tracking-wider text-[#0C263D]">
+            Dan Beatty <span className="text-[#B64F43]">·</span> AGC Edge
           </span>
         </div>
 
-        {/* Action Buttons (Strictly sized for mobile screens with zero clipping) */}
-        <div className="flex items-center gap-1.5 sm:gap-2.5">
+        {/* Action Buttons */}
+        <div className="flex items-center gap-2 sm:gap-2.5">
           <button
             type="button"
             onClick={onOpenSpeakerKit}
-            className="inline-flex items-center gap-1 rounded-lg border border-slate-300 bg-white px-2.5 py-1.5 sm:px-3.5 sm:py-2 text-[0.7rem] sm:text-xs font-extrabold uppercase tracking-wider text-[#0C263D] hover:bg-slate-50 transition-all shadow-sm cursor-pointer whitespace-nowrap"
+            className="hidden sm:inline-flex items-center gap-1 rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-[#0C263D] hover:bg-slate-50 transition-all shadow-sm cursor-pointer whitespace-nowrap"
           >
-            <Download className="size-3 sm:size-3.5 text-[#B64F43]" />
+            <Download className="size-3 text-[#B64F43]" />
             <span>Speaker Kit</span>
           </button>
 
           <button
             type="button"
             onClick={onOpenCalendly}
-            className="inline-flex items-center gap-1 sm:gap-1.5 rounded-lg bg-[#0C263D] px-3 py-1.5 sm:px-4 sm:py-2 text-[0.7rem] sm:text-xs font-extrabold uppercase tracking-wider text-white shadow hover:bg-[#1A4368] transition-all cursor-pointer whitespace-nowrap"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-[#0C263D] px-3 py-1.5 sm:px-4 sm:py-2 text-[0.72rem] sm:text-xs font-extrabold uppercase tracking-wider text-white shadow hover:bg-[#1A4368] transition-all cursor-pointer whitespace-nowrap"
           >
             <Calendar className="size-3 sm:size-3.5 text-[#B64F43]" />
             <span>Start Conversation</span>
@@ -141,11 +141,24 @@ export function Header({ onOpenCalendly, onOpenSpeakerKit }: HeaderProps) {
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="rounded-lg px-3.5 py-2.5 text-sm font-bold text-slate-800 hover:bg-slate-100"
+                className="rounded-lg px-3.5 py-2 text-sm font-bold text-slate-800 hover:bg-slate-100"
               >
                 {link.label}
               </a>
             ))}
+            <div className="border-t border-slate-200 pt-3 mt-2 flex flex-col gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenSpeakerKit();
+                }}
+                className="w-full inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 py-2.5 text-xs font-extrabold uppercase tracking-wider text-[#0C263D]"
+              >
+                <Download className="size-3.5 text-[#B64F43]" />
+                <span>Download Speaker Kit</span>
+              </button>
+            </div>
           </div>
         </div>
       )}

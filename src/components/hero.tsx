@@ -13,7 +13,7 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
   const agcLink = "https://pmc.agc.org/speakers/#:~:text=Hohns%20%E2%80%A2%20Inglis%2C%20Inc.-,Dan%20Beatty,-Constructive%20Leadership%20Solutions";
 
   return (
-    <section id="overview" className="relative overflow-hidden bg-blueprint-dark text-white pt-6 sm:pt-10 lg:pt-12 pb-0 border-b border-slate-800">
+    <section id="overview" className="relative overflow-hidden bg-blueprint-dark text-white pt-5 sm:pt-10 lg:pt-12 pb-0 border-b border-slate-800">
       {/* Ambient Radial Spotlight Glows */}
       <div className="pointer-events-none absolute -top-40 right-0 size-[900px] rounded-full bg-[#B64F43]/20 blur-[180px]" />
       <div className="pointer-events-none absolute top-1/4 left-0 size-[750px] rounded-full bg-[#31485A]/40 blur-[160px]" />
@@ -22,12 +22,12 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,#000_75%,transparent_100%)]" />
 
       {/* Main Expansive Container */}
-      <div className="relative mx-auto max-w-[1720px] px-4 sm:px-6 lg:px-8 xl:px-10">
-        <div className="grid items-end gap-2 sm:gap-6 lg:grid-cols-12 lg:gap-8 xl:gap-12">
+      <div className="relative mx-auto max-w-[1720px] px-3 sm:px-6 lg:px-8 xl:px-10">
+        <div className="grid items-end gap-0 lg:grid-cols-12 lg:gap-8 xl:gap-12">
           
           {/* Left Column: Headline, Positioning Copy & Direct Actions */}
-          <div className="lg:col-span-7 xl:col-span-7 pb-4 sm:pb-8 lg:pb-20 space-y-4 sm:space-y-6 z-20">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[0.68rem] sm:text-xs font-bold uppercase tracking-[0.16em] text-[#B64F43] backdrop-blur shadow-sm">
+          <div className="lg:col-span-7 xl:col-span-7 pb-2 sm:pb-8 lg:pb-20 space-y-3.5 sm:space-y-6 z-20">
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[0.65rem] sm:text-xs font-bold uppercase tracking-[0.16em] text-[#B64F43] backdrop-blur shadow-sm">
               <Sparkles className="size-3 sm:size-3.5" />
               <span>Construction Keynotes & Leadership</span>
             </div>
@@ -39,15 +39,15 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
               </span>
             </h1>
 
-            <p className="max-w-2xl text-sm sm:text-base lg:text-xl text-slate-300 leading-relaxed font-normal">
+            <p className="max-w-2xl text-xs sm:text-base lg:text-xl text-slate-300 leading-relaxed font-normal">
               Field-tested keynote speaking for AGC chapters and construction conventions, and multi-session leadership programs that transform technical project managers and superintendents into commercially minded, decisive leaders.
             </p>
 
             {/* Authority Trust Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 pt-1 max-w-2xl">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 pt-0.5 max-w-2xl">
               <div className="rounded-xl border border-white/10 bg-white/5 p-2.5 sm:p-3.5 backdrop-blur">
                 <p className="font-extrabold text-[#B64F43] text-xs sm:text-sm tracking-wide">SINCE 1984</p>
-                <p className="text-slate-300 text-[0.68rem] sm:text-[0.72rem] mt-0.5">40+ Yrs in Heavy Civil</p>
+                <p className="text-slate-300 text-[0.65rem] sm:text-[0.72rem] mt-0.5">40+ Yrs in Heavy Civil</p>
               </div>
               <a
                 href={agcLink}
@@ -59,20 +59,20 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
                   <p className="font-extrabold text-white text-xs sm:text-sm tracking-wide">AGC EDGE</p>
                   <ExternalLink className="size-3 text-slate-400 group-hover:text-[#B64F43]" />
                 </div>
-                <p className="text-slate-300 text-[0.68rem] sm:text-[0.72rem] mt-0.5 group-hover:text-white">Approved Instructor ↗</p>
+                <p className="text-slate-300 text-[0.65rem] sm:text-[0.72rem] mt-0.5 group-hover:text-white">Approved Instructor ↗</p>
               </a>
               <div className="rounded-xl border border-white/10 bg-white/5 p-2.5 sm:p-3.5 backdrop-blur">
                 <p className="font-extrabold text-[#B64F43] text-xs sm:text-sm tracking-wide">5 VOICES</p>
-                <p className="text-slate-300 text-[0.68rem] sm:text-[0.72rem] mt-0.5">Certified Facilitator</p>
+                <p className="text-slate-300 text-[0.65rem] sm:text-[0.72rem] mt-0.5">Certified Facilitator</p>
               </div>
               <div className="rounded-xl border border-white/10 bg-white/5 p-2.5 sm:p-3.5 backdrop-blur">
                 <p className="font-extrabold text-white text-xs sm:text-sm tracking-wide">IN THE FIELD</p>
-                <p className="text-slate-300 text-[0.68rem] sm:text-[0.72rem] mt-0.5">Priced & Run the Job</p>
+                <p className="text-slate-300 text-[0.65rem] sm:text-[0.72rem] mt-0.5">Priced & Run the Job</p>
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3.5 pt-1 sm:pt-2 max-w-2xl">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3.5 pt-1 sm:pt-2 max-w-2xl">
               <button
                 type="button"
                 onClick={onOpenCalendly}
@@ -93,7 +93,7 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
               <button
                 type="button"
                 onClick={onOpenSpeakerKit}
-                className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 sm:px-4 sm:py-4 text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors cursor-pointer"
+                className="hidden sm:inline-flex items-center justify-center gap-1.5 px-3 py-2.5 text-xs sm:text-sm font-bold text-slate-300 hover:text-white transition-colors cursor-pointer"
               >
                 <Download className="size-3.5 sm:size-4 text-[#B64F43]" />
                 <span>Speaker Kit</span>
@@ -101,8 +101,8 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
             </div>
           </div>
 
-          {/* Right Column: Dan Cutout (No empty vertical gap on mobile) */}
-          <div className="lg:col-span-5 xl:col-span-5 relative flex items-end justify-center lg:justify-end self-end h-full min-h-[360px] sm:min-h-[480px] lg:min-h-[820px] xl:min-h-[920px] 2xl:min-h-[1000px] overflow-visible mt-2 lg:mt-0">
+          {/* Right Column: Dan Cutout (Starts immediately below buttons on mobile with 0 empty gap) */}
+          <div className="lg:col-span-5 xl:col-span-5 relative flex items-end justify-center lg:justify-end self-end h-auto lg:h-full lg:min-h-[820px] xl:min-h-[920px] 2xl:min-h-[1000px] overflow-visible -mt-2 lg:mt-0">
             {/* Ambient Lighting Pod Behind Dan */}
             <div className="pointer-events-none absolute bottom-0 right-0 w-full h-4/5 rounded-t-full bg-gradient-to-t from-[#B64F43]/30 via-[#31485A]/35 to-transparent blur-3xl" />
 
@@ -133,7 +133,7 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
                 width={850}
                 height={1100}
                 priority
-                className="object-contain object-bottom drop-shadow-[0_25px_50px_rgba(0,0,0,0.85)] -mb-px max-h-[380px] sm:max-h-[500px] lg:max-h-[850px] xl:max-h-[950px] 2xl:max-h-[1040px] scale-105 sm:scale-110 lg:scale-115 xl:scale-120 2xl:scale-125 origin-bottom lg:origin-bottom-right w-auto pointer-events-none"
+                className="object-contain object-bottom drop-shadow-[0_25px_50px_rgba(0,0,0,0.85)] -mb-px max-h-[360px] sm:max-h-[500px] lg:max-h-[850px] xl:max-h-[950px] 2xl:max-h-[1040px] scale-105 sm:scale-110 lg:scale-115 xl:scale-120 2xl:scale-125 origin-bottom lg:origin-bottom-right w-auto pointer-events-none"
               />
             </div>
 
@@ -155,7 +155,7 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
 
       {/* Association Credibility Bar */}
       <div className="border-t border-white/10 bg-[#081B2C] py-3 sm:py-4 relative z-20">
-        <div className="mx-auto max-w-[1720px] px-4 sm:px-6 lg:px-8 xl:px-10">
+        <div className="mx-auto max-w-[1720px] px-3 sm:px-6 lg:px-8 xl:px-10">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-2 sm:gap-4">
             <span className="text-[0.7rem] sm:text-xs font-extrabold uppercase tracking-[0.18em] text-slate-400 shrink-0 text-center lg:text-left">
               Trusted by Leading Construction Associations:
