@@ -37,7 +37,7 @@ export function CohortProgram({ onOpenCalendly, onOpenCohortApply }: CohortProgr
 
   return (
     <section id="cohort-program" className="bg-white py-20 lg:py-28 border-b border-slate-200">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8">
         {/* Top Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3.5 py-1 text-xs font-extrabold uppercase tracking-[0.2em] text-[#B64F43]">

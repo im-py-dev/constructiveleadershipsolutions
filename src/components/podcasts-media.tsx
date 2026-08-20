@@ -43,7 +43,7 @@ export function PodcastsMedia({ onOpenCalendly }: PodcastsMediaProps) {
       {/* Ambient background glow */}
       <div className="pointer-events-none absolute top-10 right-0 size-96 rounded-full bg-[#B64F43]/15 blur-3xl" />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-8">
           <div className="max-w-2xl space-y-3">

@@ -31,7 +31,7 @@ export function TheFriction() {
 
   return (
     <section id="friction" className="bg-[#0C263D] text-white py-20 lg:py-28 relative overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-12 items-start">
           {/* Left: Reality & Financial Impact */}
           <div className="lg:col-span-7 space-y-6">

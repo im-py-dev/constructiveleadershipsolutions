@@ -35,7 +35,7 @@ export function AboutDan({ onOpenCalendly }: AboutDanProps) {
 
   return (
     <section id="about" className="bg-white py-20 lg:py-28 border-b border-slate-200">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-12">
           {/* Left Column: Story & Deep Background */}
           <div className="lg:col-span-7 space-y-6">

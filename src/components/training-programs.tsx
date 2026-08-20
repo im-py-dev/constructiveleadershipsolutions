@@ -114,7 +114,7 @@ export function TrainingPrograms({ onOpenCalendly }: TrainingProgramsProps) {
 
   return (
     <section id="training-programs" className="bg-[#F8F9FA] py-20 lg:py-28 border-b border-slate-200">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B64F43]">

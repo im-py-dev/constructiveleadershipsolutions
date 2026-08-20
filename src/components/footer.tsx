@@ -13,7 +13,7 @@ export function Footer({ onOpenCalendly, onOpenSpeakerKit }: FooterProps) {
 
   return (
     <footer className="border-t border-slate-800 bg-[#0C263D] text-white">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <div className="mx-auto max-w-[85rem] px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {/* Column 1: Brand & Contact Info */}
           <div className="space-y-4">

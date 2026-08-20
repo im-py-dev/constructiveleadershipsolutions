@@ -63,7 +63,7 @@ Looking forward to discussing!`;
 
   return (
     <section id="speaker-reel" className="bg-[#0C263D] text-white py-20 lg:py-28 relative overflow-hidden border-b border-slate-800">
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl">
           <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B64F43]">

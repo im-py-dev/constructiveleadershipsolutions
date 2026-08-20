@@ -34,7 +34,7 @@ export function LeadCapture({ onOpenDiagnostic }: LeadCaptureProps) {
 
   return (
     <section id="newsletter" className="bg-[#F8F9FA] py-20 lg:py-28 border-b border-slate-200">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-12 items-center">
           {/* Card 1: Newsletter Signup */}
           <div className="lg:col-span-7 rounded-2xl border-2 border-slate-200 bg-white p-8 sm:p-10 shadow-sm">
