@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2, ArrowRight, ShieldCheck, BarChart3, Users2, Compass, Layers, Clock, Award } from "lucide-react";
+import { CheckCircle2, ArrowRight, ShieldCheck, BarChart3, Users2, Compass, Layers, Clock, Award, TrendingUp } from "lucide-react";
 
 interface TrainingProgramsProps {
   onOpenCalendly: () => void;
@@ -13,22 +13,22 @@ export function TrainingPrograms({ onOpenCalendly }: TrainingProgramsProps) {
   const programs = [
     {
       id: "pm-development",
-      tag: "FLAGSHIP MULTI-SESSION PROGRAM",
-      title: "Project Manager Development Program",
-      subtitle: "Transform technical managers into decisive, commercially minded leaders.",
+      tag: "FLAGSHIP AGC & CONTRACTOR CURRICULUM",
+      title: "Project Manager Development Program (PMDP)",
+      subtitle: "Transform technical project managers into decisive, commercially minded leaders.",
       duration: "4 to 8 Session Cohort · Virtual or On-Site",
       description:
-        "Most construction PMs were trained to read drawings, write RFIs, and review pay applications—but never how to lead crews, navigate conflict, hold subcontractors accountable, or protect job margin. This flagship program fills that void with practical, battle-tested leadership systems.",
+        "Delivering the AGC of America PMDP curriculum combined with 40 years of real field leadership. Most PMs were taught how to review pay apps and write RFIs—never how to lead crews, negotiate change orders, hold subcontractors accountable, or defend jobsite margin.",
       outcomes: [
-        "Financial ownership & proactive margin protection",
+        "Commercial leadership & proactive jobsite margin protection",
         "Mastering tough subcontractor & owner negotiations without blowing up relationships",
         "Eliminating the costly communication barrier between field trailers and main offices",
-        "Structured delegation frameworks so senior executives can stop putting out daily fires",
+        "Proven retention growth: NCCER research shows structured training elevates retention from 28% to 73%",
       ],
       curriculum: [
-        { week: "Module 1", topic: "The PM as a Commercial Leader", desc: "Understanding the true financial levers of jobsite profitability and risk management." },
-        { week: "Module 2", topic: "The 5 Voices on the Jobsite", desc: "Decoding team personality styles to eliminate friction between field and office." },
-        { week: "Module 3", topic: "Difficult Conversations & Subcontractor Accountability", desc: "How to address poor performance, scope disputes, and schedule slippage early." },
+        { week: "Module 1", topic: "The PM as a Commercial Leader", desc: "Understanding the true financial levers of jobsite profitability, cash flow, and risk management." },
+        { week: "Module 2", topic: "The 5 Voices on the Jobsite", desc: "Decoding team personality styles to eliminate friction between field foremen and office staff." },
+        { week: "Module 3", topic: "Difficult Conversations & Sub Accountability", desc: "How to address poor performance, scope disputes, and schedule slippage on day one." },
         { week: "Module 4", topic: "Delegation & Execution Systems", desc: "Moving from reactive fire-fighting to proactive milestone execution." },
       ],
       idealFor: "Project Managers, Assistant PMs, Project Executives, Operations Coordinators",
@@ -36,12 +36,12 @@ export function TrainingPrograms({ onOpenCalendly }: TrainingProgramsProps) {
     },
     {
       id: "builder-to-leader",
-      tag: "FIELD SUPERVISOR MASTERY",
+      tag: "FIELD SUPERVISOR MASTERY (STP / CSF)",
       title: "From Strong Builder to Leader of People",
       subtitle: "Turn master craftspeople into confident, respected superintendents.",
       duration: "Half-Day or Full-Day Intensive + Follow-Up",
       description:
-        "The fastest way to lose a great craftsperson is promoting them to superintendent without leadership training. Dan guides craft leaders through the vital identity shift: moving from 'doing the physical work with your hands' to 'guiding crews to hit safety, quality, and schedule milestones.'",
+        "The fastest way to lose a great craftsperson is promoting them to superintendent without leadership training. Dan delivers AGC Supervisory Training Program (STP) and Construction Supervision Fundamentals (CSF) principles to guide craft leaders through the vital identity shift from 'doing the work' to 'leading others.'",
       outcomes: [
         "Moving from 'doing' to 'leading' without losing crew respect",
         "Daily morning huddles that actually drive labor production",
@@ -58,12 +58,12 @@ export function TrainingPrograms({ onOpenCalendly }: TrainingProgramsProps) {
     },
     {
       id: "estimating-impact",
-      tag: "BID DISCIPLINE & MARGIN",
+      tag: "BID DISCIPLINE & PRE-CON",
       title: "Estimating with Impact",
       subtitle: "Protect project margins before the first shovel hits the ground.",
       duration: "Single-Day Masterclass or 2-Part Workshop",
       description:
-        "Profitability is won or lost during the estimate. Combining 40 years of estimating experience with AGC Edge certified methodology, Dan teaches estimating teams how to uncover hidden indirect costs, evaluate risk, eliminate contingency blind spots, and bid with discipline.",
+        "Combining 35+ years of heavy civil estimating at Bechtel, Alberici, and Flatiron with AGC certified methodology, Dan teaches estimating teams how to uncover hidden indirect costs, evaluate risk, eliminate contingency blind spots, and bid with discipline.",
       outcomes: [
         "Uncovering hidden indirect jobsite costs that silently eat margin",
         "Disciplined risk assessment and contingency defense during bid reviews",
@@ -107,6 +107,7 @@ export function TrainingPrograms({ onOpenCalendly }: TrainingProgramsProps) {
   return (
     <section id="training-programs" className="bg-[#F8F9FA] py-20 lg:py-28 border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B64F43]">
             Contractor Training Tracks
@@ -115,23 +116,30 @@ export function TrainingPrograms({ onOpenCalendly }: TrainingProgramsProps) {
             Field-Tested Development for the People Who Drive Production.
           </h2>
           <p className="text-base text-slate-600 leading-relaxed">
-            Move away from one-off motivational talks. Implement structured, multi-session leadership engagements that create permanent behavioral change in your field and office operations.
+            Move away from one-off motivational talks. Implement structured, multi-session AGC and proprietary leadership engagements that create permanent behavioral change in your field and office operations.
           </p>
         </div>
 
+        {/* Tab Buttons */}
         <div className="mt-12 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
           {programs.map((prog) => (
             <button
               key={prog.id}
               type="button"
               onClick={() => setActiveTab(prog.id)}
-              className={"rounded-lg px-4 py-3 text-xs sm:text-sm font-extrabold uppercase tracking-wider transition-all cursor-pointer " + (activeTab === prog.id ? "bg-[#0C263D] text-white shadow-md" : "bg-white text-slate-700 border border-slate-200 hover:border-[#B64F43] hover:text-[#0C263D]")}
+              className={
+                "rounded-lg px-4 py-3 text-xs sm:text-sm font-extrabold uppercase tracking-wider transition-all cursor-pointer " +
+                (activeTab === prog.id
+                  ? "bg-[#0C263D] text-white shadow-md"
+                  : "bg-white text-slate-700 border border-slate-200 hover:border-[#B64F43] hover:text-[#0C263D]")
+              }
             >
               {prog.title}
             </button>
           ))}
         </div>
 
+        {/* Selected Program Box */}
         <div className="mt-8 rounded-2xl border-2 border-[#0C263D] bg-white p-8 sm:p-12 shadow-xl">
           <div className="grid gap-10 lg:grid-cols-12 items-start">
             <div className="lg:col-span-7 space-y-6">
@@ -174,7 +182,7 @@ export function TrainingPrograms({ onOpenCalendly }: TrainingProgramsProps) {
                 <button
                   type="button"
                   onClick={onOpenCalendly}
-                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#B64F43] px-6 py-3.5 text-xs font-extrabold uppercase tracking-wider text-white hover:bg-[#9E3E33] transition-all shadow text-center"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#B64F43] px-6 py-3.5 text-xs font-extrabold uppercase tracking-wider text-white hover:bg-[#9E3E33] transition-all shadow text-center cursor-pointer"
                 >
                   <span>Schedule Discovery for This Program</span>
                   <ArrowRight className="size-4" />
@@ -209,13 +217,15 @@ export function TrainingPrograms({ onOpenCalendly }: TrainingProgramsProps) {
                 ))}
               </div>
 
-              <p className="text-[0.7rem] text-slate-400 text-center">
-                *Programs can be tailored to your firm's specific project types and trade mix.
-              </p>
+              <div className="rounded-lg bg-emerald-50 border border-emerald-200 p-3 flex items-center gap-2.5 text-emerald-800 text-xs">
+                <TrendingUp className="size-4 text-emerald-600 shrink-0" />
+                <span>NCCER Research: Structured supervisor development increased retention from 28% to 73%.</span>
+              </div>
             </div>
           </div>
         </div>
 
+        {/* Enterprise Callout */}
         <div className="mt-14 rounded-2xl bg-[#0C263D] text-white p-8 sm:p-12 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-2xl">
           <div className="space-y-2 text-center lg:text-left">
             <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#B64F43]">
@@ -225,14 +235,14 @@ export function TrainingPrograms({ onOpenCalendly }: TrainingProgramsProps) {
               Have 10+ Project Managers Across Multiple Regions?
             </h3>
             <p className="text-sm text-slate-300 max-w-2xl leading-relaxed">
-              Dan designs customized enterprise cohorts combining virtual masterclasses, on-site jobsite walkthroughs, and 1:1 executive leadership coaching for regional and national GCs.
+              Dan designs customized enterprise cohorts combining virtual masterclasses, on-site jobsite walkthroughs, and 1:1 executive leadership coaching for regional and national general contractors.
             </p>
           </div>
 
           <button
             type="button"
             onClick={onOpenCalendly}
-            className="inline-flex items-center gap-2 rounded-lg bg-[#B64F43] px-7 py-4 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white hover:bg-[#9E3E33] transition-all shadow-xl shrink-0"
+            className="inline-flex items-center gap-2 rounded-lg bg-[#B64F43] px-7 py-4 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white hover:bg-[#9E3E33] transition-all shadow-xl shrink-0 cursor-pointer"
           >
             <span>Design a Custom Cohort</span>
             <ArrowRight className="size-4" />
