@@ -133,7 +133,7 @@ export function Hero({ onOpenCalendly, onOpenSpeakerKit, onOpenDiagnostic }: Her
                 width={850}
                 height={1100}
                 priority
-                className="object-contain object-bottom drop-shadow-[0_25px_50px_rgba(0,0,0,0.85)] -mb-px max-h-[360px] sm:max-h-[500px] lg:max-h-[720px] xl:max-h-[800px] 2xl:max-h-[880px] scale-105 sm:scale-110 lg:scale-115 xl:scale-120 origin-bottom lg:origin-bottom-right w-auto pointer-events-none"
+                className="object-contain object-bottom drop-shadow-[0_25px_50px_rgba(0,0,0,0.85)] -mb-px max-h-[420px] sm:max-h-[580px] lg:max-h-[820px] xl:max-h-[920px] 2xl:max-h-[1000px] scale-[1.15] sm:scale-125 lg:scale-[1.3] xl:scale-[1.35] origin-bottom lg:origin-bottom-right w-auto pointer-events-none"
               />
             </div>
 

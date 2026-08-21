@@ -121,9 +121,9 @@ export function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
             className={"size-full border-0 " + (duration === "15" ? "block" : "hidden")}
           />
 
-          {/* 30-Minute Meeting (Default): https://calendly.com/dan-danbeatty */}
+          {/* 30-Minute Meeting (Default): https://calendly.com/dan-danbeatty/30min */}
           <iframe
-            src="https://calendly.com/dan-danbeatty?hide_gdpr_banner=1&primary_color=b64f43"
+            src="https://calendly.com/dan-danbeatty/30min?hide_gdpr_banner=1&primary_color=b64f43&back=1"
             title="Book a 30-Minute Conversation with Dan Beatty"
             className={"size-full border-0 " + (duration === "30" ? "block" : "hidden")}
           />
